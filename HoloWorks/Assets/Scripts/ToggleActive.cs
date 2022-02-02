@@ -7,8 +7,10 @@ public class ToggleActive : MonoBehaviour
     public void ToggleObjectActive()
     {
 
+        //get current active sate of gameobject
         bool isActive = gameObject.activeSelf;
 
+        //set the different active state
         gameObject.SetActive(!isActive);
     }
 }

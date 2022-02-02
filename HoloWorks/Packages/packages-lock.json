@@ -51,6 +51,12 @@
         "com.microsoft.mixedreality.toolkit.foundation": "2.7.3"
       }
     },
+    "com.microsoft.mixedreality.worldlockingtools": {
+      "version": "file:MixedReality/com.microsoft.mixedreality.worldlockingtools-1.5.7.tgz",
+      "depth": 0,
+      "source": "local-tarball",
+      "dependencies": {}
+    },
     "com.unity.collab-proxy": {
       "version": "1.15.7",
       "depth": 0,
