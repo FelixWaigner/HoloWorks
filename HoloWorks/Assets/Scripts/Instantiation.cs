@@ -10,8 +10,11 @@ public class Instantiation : MonoBehaviour
     {
 
         //Instantiate Objects
-        GameObject MaterialObject = Instantiate(MyObject, new Vector3(0, 0, 0), Quaternion.identity);
-        GameObject ConfigObject = Instantiate(Resources.Load<GameObject>("Prefabs/ModelConfigPrefabs/BasicConfigs"));
+        GameObject MaterialObject = Instantiate((MyObject), new Vector3(0, 0, 0), Quaternion.identity);
+        GameObject ConfigObject = Instantiate(Resources.Load<GameObject>("Prefabs/ModelConfigPrefabs/BasicConfigs"), new Vector3(0, 0, 0), Quaternion.identity);
+
+
+       
 
         //Set ConfigurationObject as parent
         MaterialObject.transform.SetParent(ConfigObject.transform);
@@ -19,6 +22,5 @@ public class Instantiation : MonoBehaviour
         //Toggle Active state to apply changes
         ConfigObject.SetActive(false);
         ConfigObject.SetActive(true);
-
     }
 }
