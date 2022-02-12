@@ -8,9 +8,18 @@ public class Instantiation : MonoBehaviour
 
     public void Instantiate()
     {
+        //Get Hololens position and rotation
+        Vector3 playerPos = Camera.main.transform.position;
+        Vector3 playerDirection = Camera.main.transform.forward;
+        Quaternion playerRotation = Camera.main.transform.rotation;
+        float spawnDistance = 1;
 
-        //Instantiate Objects
-        GameObject MaterialObject = Instantiate((MyObject), new Vector3(0, 0, 0), Quaternion.identity);
+        Vector3 spawnPos = playerPos + playerDirection * spawnDistance;
+
+        //Instantiate Objects in front of player
+        GameObject MaterialObject = Instantiate(MyObject);
+        MaterialObject.transform.position = spawnPos;
+        MaterialObject.transform.rotation = Quaternion.Euler(0, 0, playerRotation.z);
         GameObject ConfigObject = Instantiate(Resources.Load<GameObject>("Prefabs/ModelConfigPrefabs/BasicConfigs"), new Vector3(0, 0, 0), Quaternion.identity);
 
 

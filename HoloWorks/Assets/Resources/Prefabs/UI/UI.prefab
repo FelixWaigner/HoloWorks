@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 8244293820914707805}
   - component: {fileID: 4015419606468412409}
   m_Layer: 5
-  m_Name: Text
+  m_Name: SafetyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -177,7 +177,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 1.18
   m_Text: 
 --- !u!1 &4427115865288473233
 GameObject:
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 9104621633177433867}
   - component: {fileID: 175670765661104058}
   m_Layer: 5
-  m_Name: Text
+  m_Name: DescriptionText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -256,7 +256,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 1.18
   m_Text: 
 --- !u!1 &8961885052918477880
 GameObject:
@@ -1131,6 +1131,14 @@ PrefabInstance:
       propertyPath: m_Text
       value: Text
       objectReference: {fileID: 0}
+    - target: {fileID: 2985467785689369693, guid: 5068fa4d897e42c409eb13c849699ec5, type: 3}
+      propertyPath: m_FontData.m_LineSpacing
+      value: 1.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2985467785689369695, guid: 5068fa4d897e42c409eb13c849699ec5, type: 3}
+      propertyPath: m_Name
+      value: InstructionText
+      objectReference: {fileID: 0}
     - target: {fileID: 2985467785689369695, guid: 5068fa4d897e42c409eb13c849699ec5, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1199,6 +1207,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7383222374952375588, guid: 5068fa4d897e42c409eb13c849699ec5, type: 3}
+      propertyPath: onManipulationEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 2100000, guid: fd5a26d96dd32454e859c961e8e4d2de, type: 2}
+    - target: {fileID: 7383222374952375588, guid: 5068fa4d897e42c409eb13c849699ec5, type: 3}
+      propertyPath: onManipulationStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 2100000, guid: 16526572b35ecaa4ba781a0bff18ab12, type: 2}
     m_RemovedComponents:
     - {fileID: 2985467786846195254, guid: 5068fa4d897e42c409eb13c849699ec5, type: 3}
     - {fileID: 2985467786215959269, guid: 5068fa4d897e42c409eb13c849699ec5, type: 3}
