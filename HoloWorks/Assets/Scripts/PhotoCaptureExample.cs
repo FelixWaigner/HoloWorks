@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections;
+using System;
 using System.Linq;
+using UnityEngine.Assertions;
 using UnityEngine.Windows.WebCam;
 
 public class PhotoCaptureExample : MonoBehaviour
@@ -9,7 +11,7 @@ public class PhotoCaptureExample : MonoBehaviour
     Texture2D targetTexture = null;
 
     // Use this for initialization
-    public void PhotoStart()
+    public void TakePhoto()
     {
         Resolution cameraResolution = PhotoCapture.SupportedResolutions.OrderByDescending((res) => res.width * res.height).First();
         targetTexture = new Texture2D(cameraResolution.width, cameraResolution.height);
@@ -39,7 +41,7 @@ public class PhotoCaptureExample : MonoBehaviour
         // Create a GameObject to which the texture can be applied
         GameObject quad = GameObject.CreatePrimitive(PrimitiveType.Quad);
         Renderer quadRenderer = quad.GetComponent<Renderer>() as Renderer;
-        quadRenderer.material = new Material(Shader.Find("Custom/Unlit/UnlitTexture"));
+        quadRenderer.material = new Material(Shader.Find("Legacy Shaders/Diffuse")); //Custom/Unlit/UnlitTexture
 
         quad.transform.parent = this.transform;
         quad.transform.localPosition = new Vector3(0.0f, 0.0f, 3.0f);
@@ -57,3 +59,4 @@ public class PhotoCaptureExample : MonoBehaviour
         photoCaptureObject = null;
     }
 }
+
