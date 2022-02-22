@@ -1,14 +1,13 @@
 using UnityEngine;
-using System.Collections;
 using System;
 using System.Linq;
-using UnityEngine.Assertions;
 using UnityEngine.Windows.WebCam;
 
 public class PhotoCaptureExample : MonoBehaviour
 {
     PhotoCapture photoCaptureObject = null;
     Texture2D targetTexture = null;
+    public GameObject quad;
 
     // Use this for initialization
     public void TakePhoto()
@@ -39,12 +38,12 @@ public class PhotoCaptureExample : MonoBehaviour
         photoCaptureFrame.UploadImageDataToTexture(targetTexture);
 
         // Create a GameObject to which the texture can be applied
-        GameObject quad = GameObject.CreatePrimitive(PrimitiveType.Quad);
+        //GameObject quad = GameObject.CreatePrimitive(PrimitiveType.Quad);
         Renderer quadRenderer = quad.GetComponent<Renderer>() as Renderer;
         quadRenderer.material = new Material(Shader.Find("Legacy Shaders/Diffuse")); //Custom/Unlit/UnlitTexture
 
-        quad.transform.parent = this.transform;
-        quad.transform.localPosition = new Vector3(0.0f, 0.0f, 3.0f);
+        //quad.transform.parent = this.transform;
+        //quad.transform.localPosition = new Vector3(0.0f, 0.0f, 3.0f);
 
         quadRenderer.material.SetTexture("_MainTex", targetTexture);
 
