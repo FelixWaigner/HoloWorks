@@ -21,7 +21,7 @@ public class Instantiation : MonoBehaviour
         //Instantiate Objects in front of player
         GameObject MaterialObject = Instantiate(MyObject);
         //MaterialObject.transform.position = spawnPos;
-        MaterialObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+//MaterialObject.transform.rotation = Quaternion.Euler(0, 0, 0);
         GameObject ConfigObject = Instantiate(Resources.Load<GameObject>("Prefabs/ModelConfigPrefabs/BasicConfigs"));
 
         //Set ConfigurationObject as parent
