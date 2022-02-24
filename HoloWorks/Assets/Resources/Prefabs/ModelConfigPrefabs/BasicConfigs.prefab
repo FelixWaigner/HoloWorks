@@ -573,19 +573,7 @@ MonoBehaviour:
       m_Calls: []
   scaleStopped:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 9055788289846631868}
-        m_TargetAssemblyTypeName: AppBar, Assembly-CSharp
-        m_MethodName: MoveAppBar
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   translateStarted:
     m_PersistentCalls:
       m_Calls: []
@@ -698,7 +686,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 876650794141697595}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.016, z: 0.008000016}
+  m_LocalPosition: {x: 0, y: 0, z: 0.008000016}
   m_LocalScale: {x: 1, y: 4, z: 1}
   m_Children:
   - {fileID: 1869988795806426160}
@@ -2947,6 +2935,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 120a51775f907674da1725a8a9cb1093, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BasicConfig: {fileID: 1608248171522456313}
+  RotatingObject: {fileID: 525773936754767054}
   transformObject: {fileID: 5773948543374857105}
   offset: -0.035
 --- !u!1 &2778762767740300085
@@ -6508,7 +6498,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7165298491275390927}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1.0005}
+  m_LocalPosition: {x: 0, y: 0.016, z: -1.0005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7103673339068842494}
