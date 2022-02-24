@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &162108394148783384
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5773948543374857105}
+  m_Layer: 0
+  m_Name: OffsetHelper
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5773948543374857105
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162108394148783384}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5711263293878145979}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &176880862426501826
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,7 +448,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 5773948543374857105}
   m_Father: {fileID: 1608248171522456291}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -543,7 +574,7 @@ MonoBehaviour:
   scaleStopped:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9039377606123693768}
+      - m_Target: {fileID: 9055788289846631868}
         m_TargetAssemblyTypeName: AppBar, Assembly-CSharp
         m_MethodName: MoveAppBar
         m_Mode: 1
@@ -557,19 +588,7 @@ MonoBehaviour:
         m_CallState: 2
   translateStarted:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 9039377606123693768}
-        m_TargetAssemblyTypeName: AppBar, Assembly-CSharp
-        m_MethodName: MoveAppBar
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   translateStopped:
     m_PersistentCalls:
       m_Calls: []
@@ -2220,7 +2239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8200a044a5affb843ba856b902d9fd3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObject: {fileID: 0}
+  targetObject: {fileID: 1608248171522456313}
   boundsOverride: {fileID: 0}
   boundsCalculationMethod: 0
   activation: 0
@@ -2239,7 +2258,7 @@ MonoBehaviour:
   scaleLerpTime: 0.001
   translateLerpTime: 0.001
   enableConstraints: 1
-  constraintsManager: {fileID: 0}
+  constraintsManager: {fileID: 3912563202228242405}
   rotateStarted:
     m_PersistentCalls:
       m_Calls: []
@@ -2892,7 +2911,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8719092055548941305}
-  - component: {fileID: 9039377606123693768}
+  - component: {fileID: 9055788289846631868}
   m_Layer: 0
   m_Name: AppBar
   m_TagString: Untagged
@@ -2916,7 +2935,7 @@ Transform:
   m_Father: {fileID: 1608248171522456291}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9039377606123693768
+--- !u!114 &9055788289846631868
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2928,7 +2947,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 120a51775f907674da1725a8a9cb1093, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  appBar: {fileID: 2764815814623366571}
+  transformObject: {fileID: 5773948543374857105}
+  offset: -0.035
 --- !u!1 &2778762767740300085
 GameObject:
   m_ObjectHideFlags: 0

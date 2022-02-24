@@ -1,21 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 
 public class AppBar : MonoBehaviour
 {
-    public GameObject appBar;
-
-
-    private void Awake()
+    public Transform transformObject;
+    public float offset;
+    private void Update()
     {
-        
+        Vector3 pos = transformObject.position;
+        pos.x += offset;
+        transform.position = pos;
     }
-
-    public void MoveAppBar(float xScale)
-    {
-        
-    }
-
 }
