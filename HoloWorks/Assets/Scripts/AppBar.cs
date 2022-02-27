@@ -45,4 +45,10 @@ public class AppBar : MonoBehaviour
     {
         Destroy(BasicConfig);
     }
+
+    public void Lock()
+    {
+        var script = BasicConfig.GetComponent<Microsoft.MixedReality.Toolkit.UI.ManipulationHandler>();
+        script.enabled = !script.enabled;
+    }
 }
