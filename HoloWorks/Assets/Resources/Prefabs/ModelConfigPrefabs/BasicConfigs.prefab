@@ -23,7 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 162108394148783384}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -515,15 +515,15 @@ MonoBehaviour:
   boundsOverride: {fileID: 0}
   boundsCalculationMethod: 0
   activation: 0
-  flattenAxis: 0
+  flattenAxis: 4
   uniformScaleOnFlattenedAxis: 1
-  boxPadding: {x: 0, y: 0, z: 0}
-  boxDisplayConfiguration: {fileID: 0}
-  linksConfiguration: {fileID: 0}
-  scaleHandlesConfiguration: {fileID: 0}
-  rotationHandlesConfiguration: {fileID: 0}
+  boxPadding: {x: 0.02, y: 0.02, z: 0.02}
+  boxDisplayConfiguration: {fileID: 11400000, guid: 192a0e5ef3b123c4d8bcc726203abaea, type: 2}
+  linksConfiguration: {fileID: 11400000, guid: d917d883887cb3c40b4a71bcfc271c79, type: 2}
+  scaleHandlesConfiguration: {fileID: 11400000, guid: 1d726a1579ac6a043bedf0a10042b370, type: 2}
+  rotationHandlesConfiguration: {fileID: 11400000, guid: 44979dbd3e305bf4b8da9a6871f54db5, type: 2}
   translationHandlesConfiguration: {fileID: 0}
-  handleProximityEffectConfiguration: {fileID: 0}
+  handleProximityEffectConfiguration: {fileID: 11400000, guid: ac73848f64d6af84f962e0b27bf14610, type: 2}
   hideElementsInInspector: 1
   smoothingActive: 0
   rotateLerpTime: 0.001
@@ -533,10 +533,34 @@ MonoBehaviour:
   constraintsManager: {fileID: 3368284232211791576}
   rotateStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9055788289846631868}
+        m_TargetAssemblyTypeName: AppBar, Assembly-CSharp
+        m_MethodName: RotationStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   rotateStopped:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9055788289846631868}
+        m_TargetAssemblyTypeName: AppBar, Assembly-CSharp
+        m_MethodName: RotationEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   scaleStarted:
     m_PersistentCalls:
       m_Calls: []
@@ -1942,7 +1966,7 @@ MonoBehaviour:
   flattenAxis: 0
   uniformScaleOnFlattenedAxis: 1
   boxPadding: {x: 0, y: 0, z: 0}
-  boxDisplayConfiguration: {fileID: 0}
+  boxDisplayConfiguration: {fileID: 11400000, guid: c2b8a0ee1166d2f43a8acffd135b182c, type: 2}
   linksConfiguration: {fileID: 0}
   scaleHandlesConfiguration: {fileID: 0}
   rotationHandlesConfiguration: {fileID: 0}
@@ -2285,6 +2309,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8719092055548941305}
   - component: {fileID: 9055788289846631868}
+  - component: {fileID: 8908552843289616283}
+  - component: {fileID: 8157873674273997364}
+  - component: {fileID: 4056894694918539267}
   m_Layer: 0
   m_Name: AppBar
   m_TagString: Untagged
@@ -2322,8 +2349,67 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BasicConfig: {fileID: 1608248171522456313}
   RotatingObject: {fileID: 525773936754767054}
-  transformObject: {fileID: 5773948543374857105}
-  offset: -0.035
+  TransformObject: {fileID: 5773948543374857105}
+  Offset: -0.035
+--- !u!114 &8908552843289616283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2764815814623366571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1410eac1ae94b4d4492a09cc368e152c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  states: {fileID: 11400000, guid: 5eac1712038236e4b8ffdb3893804fe1, type: 2}
+  InputActionId: 0
+  isGlobal: 0
+  Dimensions: 1
+  dimensionIndex: 0
+  startDimensionIndex: 0
+  CanSelect: 1
+  CanDeselect: 1
+  voiceCommand: 
+  voiceRequiresFocus: 1
+  profiles:
+  - Target: {fileID: 0}
+    Themes:
+    - {fileID: 0}
+  OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+  Events: []
+  resetOnDestroy: 0
+  enabledOnStart: 1
+--- !u!114 &8157873674273997364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2764815814623366571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5afd5316c63705643b3daba5a6e923bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTetherWhenManipulating: 0
+  IsBoundsHandles: 0
+--- !u!65 &4056894694918539267
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2764815814623366571}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2778762767740300085
 GameObject:
   m_ObjectHideFlags: 0

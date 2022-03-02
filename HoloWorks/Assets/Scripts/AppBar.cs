@@ -7,20 +7,34 @@ public class AppBar : MonoBehaviour
 {
     public GameObject BasicConfig;
     public GameObject RotatingObject;
-    public Transform transformObject;
-    public float offset;
-
+    public Transform TransformObject;
+    public float Offset;
+    private bool rotating = false;
 
     private void Update()
     {
         //Make AppBar sticky to the transformObject
-        Vector3 pos = transformObject.position;
-        pos.x += offset;
-        transform.position = pos;
+        //if (rotating == false)
+        //{
+            Vector3 pos = TransformObject.position;
+            pos.x += Offset;
+            transform.position = pos;
+        //}
 
-        //Rotate appbar to match parent
-        var rotationVector = RotatingObject.transform.rotation.eulerAngles;
-        BasicConfig.transform.rotation = Quaternion.Euler(rotationVector);
+        //Rotate Appbar to match parent
+        //var rotationVector = RotatingObject.transform.rotation.eulerAngles;
+        //BasicConfig.transform.rotation = Quaternion.Euler(rotationVector);
+
+    }
+
+    public void RotationStart()
+    {
+        rotating = true;
+    }
+
+    public void RotationEnd()
+    {
+        rotating = false;
     }
 
     //Enable and disable the BoundsControl (Rotate and Scale)
@@ -46,6 +60,7 @@ public class AppBar : MonoBehaviour
         Destroy(BasicConfig);
     }
 
+    //Lock GameObject in place
     public void Lock()
     {
         var script = BasicConfig.GetComponent<Microsoft.MixedReality.Toolkit.UI.ManipulationHandler>();
