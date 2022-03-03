@@ -24,7 +24,6 @@ public class AppBar : MonoBehaviour
         //Rotate Appbar to match parent
         //var rotationVector = RotatingObject.transform.rotation.eulerAngles;
         //BasicConfig.transform.rotation = Quaternion.Euler(rotationVector);
-
     }
 
     public void RotationStart()
