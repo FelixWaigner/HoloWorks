@@ -5,7 +5,7 @@ using UnityEngine;
 public class AppBarCustomScrip : MonoBehaviour
 {
     public GameObject BasicConfig;
-    public GameObject RotatingObject;
+    public GameObject TargetObject;
 
     //Dublicate the Object
     public void Dublicate()
