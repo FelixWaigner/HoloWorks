@@ -26,7 +26,7 @@ public class AppBarCustomScrip : MonoBehaviour
     //Lock GameObject in place
     public void Lock()
     {
-        var script = BasicConfig.GetComponent<Microsoft.MixedReality.Toolkit.UI.ManipulationHandler>();
+        var script = TargetObject.GetComponent<Microsoft.MixedReality.Toolkit.UI.ManipulationHandler>();
         script.enabled = !script.enabled;
     }
 }

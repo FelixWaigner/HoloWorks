@@ -41,8 +41,8 @@ public class Instantiation : MonoBehaviour
     public void newInstantiate()
     {
         //Instantiate Objects in front of player
+        GameObject ConfigObject = Instantiate(Resources.Load<GameObject>("Prefabs/ModelConfigPrefabs/BasicConfigs"));
         GameObject MaterialObject = Instantiate(MyObject);
-        GameObject ConfigObject = Instantiate(Resources.Load<GameObject>("Prefabs/ModelConfigPrefabs/!TEST! AppBar"));
 
         //Set ConfigurationObject as parent
         MaterialObject.transform.SetParent(ConfigObject.transform.GetChild(0));
