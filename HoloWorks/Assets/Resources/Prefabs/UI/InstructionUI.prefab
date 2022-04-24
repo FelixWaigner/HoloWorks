@@ -3539,7 +3539,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2985467785682869961
 Transform:
   m_ObjectHideFlags: 0
@@ -4823,9 +4823,9 @@ MonoBehaviour:
   iconSprite: {fileID: 21300000, guid: 20f25674b9512834f88938d45ed495d7, type: 3}
   iconQuadRenderer: {fileID: 2985467786407872015}
   iconQuadTextureNameID: _MainTex
-  iconQuadTexture: {fileID: 2800000, guid: b67bb9d87f33b504f8f542f7ac6daaf9, type: 3}
+  iconQuadTexture: {fileID: 2800000, guid: 84b2e69cbebfcb14f9b47f2e395037c0, type: 3}
   defaultButtonQuadMaterial: {fileID: 2100000, guid: fa419ab56051229449e3b813df8f295f, type: 2}
-  iconSet: {fileID: 11400000, guid: 537eed5315f6f3c40aeb5079cae28b50, type: 2}
+  iconSet: {fileID: 11400000, guid: 325ae269ed37a1546ac631deda885e84, type: 2}
   defaultIconSet: {fileID: 11400000, guid: 8b386ef895f7c924f8c4b03d1d3ed683, type: 2}
 --- !u!1 &2985467785806514658
 GameObject:
@@ -4963,7 +4963,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2985467785846866802
 Transform:
   m_ObjectHideFlags: 0
@@ -6154,7 +6154,7 @@ MonoBehaviour:
   isGlobal: 0
   Dimensions: 2
   dimensionIndex: 0
-  startDimensionIndex: 1
+  startDimensionIndex: 0
   CanSelect: 1
   CanDeselect: 1
   voiceCommand: Select
@@ -6481,9 +6481,9 @@ MonoBehaviour:
   iconSprite: {fileID: 21300000, guid: 20f25674b9512834f88938d45ed495d7, type: 3}
   iconQuadRenderer: {fileID: 2985467785231446414}
   iconQuadTextureNameID: _MainTex
-  iconQuadTexture: {fileID: 2800000, guid: 85258f6d735f0784d9a391071cdf4474, type: 3}
+  iconQuadTexture: {fileID: 2800000, guid: 1aacfb967ad9dbe4ab99e6167a35dc68, type: 3}
   defaultButtonQuadMaterial: {fileID: 2100000, guid: fa419ab56051229449e3b813df8f295f, type: 2}
-  iconSet: {fileID: 11400000, guid: 537eed5315f6f3c40aeb5079cae28b50, type: 2}
+  iconSet: {fileID: 11400000, guid: 325ae269ed37a1546ac631deda885e84, type: 2}
   defaultIconSet: {fileID: 11400000, guid: 8b386ef895f7c924f8c4b03d1d3ed683, type: 2}
 --- !u!1 &2985467785977100593
 GameObject:
@@ -6894,7 +6894,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2985467786215959270
 Transform:
   m_ObjectHideFlags: 0
@@ -9568,9 +9568,9 @@ MonoBehaviour:
   iconSprite: {fileID: 21300000, guid: 20f25674b9512834f88938d45ed495d7, type: 3}
   iconQuadRenderer: {fileID: 2985467785260022169}
   iconQuadTextureNameID: _MainTex
-  iconQuadTexture: {fileID: 2800000, guid: bb1b4a9241fba2042a81428e917afd5d, type: 3}
+  iconQuadTexture: {fileID: 2800000, guid: eec87ce4a368b844b8789bb1df8c4b27, type: 3}
   defaultButtonQuadMaterial: {fileID: 2100000, guid: fa419ab56051229449e3b813df8f295f, type: 2}
-  iconSet: {fileID: 11400000, guid: 537eed5315f6f3c40aeb5079cae28b50, type: 2}
+  iconSet: {fileID: 11400000, guid: 325ae269ed37a1546ac631deda885e84, type: 2}
   defaultIconSet: {fileID: 11400000, guid: 8b386ef895f7c924f8c4b03d1d3ed683, type: 2}
 --- !u!1 &2985467786557082335
 GameObject:
@@ -10520,7 +10520,7 @@ MonoBehaviour:
   isGlobal: 0
   Dimensions: 2
   dimensionIndex: 0
-  startDimensionIndex: 1
+  startDimensionIndex: 0
   CanSelect: 1
   CanDeselect: 1
   voiceCommand: Select
@@ -10847,9 +10847,9 @@ MonoBehaviour:
   iconSprite: {fileID: 21300000, guid: 20f25674b9512834f88938d45ed495d7, type: 3}
   iconQuadRenderer: {fileID: 2985467785651695459}
   iconQuadTextureNameID: _MainTex
-  iconQuadTexture: {fileID: 2800000, guid: ec37500967bf1474293c0baa7848dd31, type: 3}
+  iconQuadTexture: {fileID: 2800000, guid: dc4a94eeb6b238e48aa831ae4a740f4d, type: 3}
   defaultButtonQuadMaterial: {fileID: 2100000, guid: fa419ab56051229449e3b813df8f295f, type: 2}
-  iconSet: {fileID: 11400000, guid: 537eed5315f6f3c40aeb5079cae28b50, type: 2}
+  iconSet: {fileID: 11400000, guid: 325ae269ed37a1546ac631deda885e84, type: 2}
   defaultIconSet: {fileID: 11400000, guid: 8b386ef895f7c924f8c4b03d1d3ed683, type: 2}
 --- !u!1 &2985467786696417746
 GameObject:
@@ -11355,7 +11355,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2985467786846195263
 Transform:
   m_ObjectHideFlags: 0
@@ -12128,7 +12128,7 @@ MonoBehaviour:
   iconQuadTextureNameID: _MainTex
   iconQuadTexture: {fileID: 2800000, guid: b10b0d83580949740998f1d362842da0, type: 3}
   defaultButtonQuadMaterial: {fileID: 2100000, guid: fa419ab56051229449e3b813df8f295f, type: 2}
-  iconSet: {fileID: 11400000, guid: 537eed5315f6f3c40aeb5079cae28b50, type: 2}
+  iconSet: {fileID: 11400000, guid: 325ae269ed37a1546ac631deda885e84, type: 2}
   defaultIconSet: {fileID: 11400000, guid: 8b386ef895f7c924f8c4b03d1d3ed683, type: 2}
 --- !u!1 &2985467786849298895
 GameObject:
