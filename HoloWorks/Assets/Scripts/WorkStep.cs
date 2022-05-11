@@ -34,7 +34,7 @@ public class WorkStep : MonoBehaviour
         }
     }
 
-    /*public void NextStep()
+    public void NextStep()
     {
         GameObject workstep = gameObject.transform.parent.gameObject;
         GameObject anchor = GameObject.FindWithTag("Anchor");
@@ -44,9 +44,9 @@ public class WorkStep : MonoBehaviour
             anchor.transform.GetChild(workstep.transform.GetSiblingIndex()).gameObject.SetActive(false);
             anchor.transform.GetChild(workstep.transform.GetSiblingIndex() + 1).gameObject.SetActive(true);
         }
-    }*/
+    }
 
-    /*public void PreviousStep()
+    public void PreviousStep()
     {
         GameObject workstep = gameObject.transform.parent.gameObject;
         GameObject anchor = GameObject.FindWithTag("Anchor");
@@ -57,5 +57,5 @@ public class WorkStep : MonoBehaviour
             anchor.transform.GetChild(workstep.transform.GetSiblingIndex()).gameObject.SetActive(false);
             anchor.transform.GetChild(workstep.transform.GetSiblingIndex() - 1).gameObject.SetActive(true);
         }
-    }*/
+    }
 }
