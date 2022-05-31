@@ -5049,7 +5049,7 @@ MonoBehaviour:
   rotateLerpTime: 0.001
   scaleLerpTime: 0.001
   enableConstraints: 1
-  constraintsManager: {fileID: 2985467785682869967}
+  constraintsManager: {fileID: 2985467785846866800}
   elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:
@@ -6978,7 +6978,7 @@ MonoBehaviour:
   rotateLerpTime: 0.001
   scaleLerpTime: 0.001
   enableConstraints: 1
-  constraintsManager: {fileID: 2985467785682869967}
+  constraintsManager: {fileID: 2985467786215959268}
   elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:
@@ -11439,7 +11439,7 @@ MonoBehaviour:
   rotateLerpTime: 0.001
   scaleLerpTime: 0.001
   enableConstraints: 1
-  constraintsManager: {fileID: 2985467785682869967}
+  constraintsManager: {fileID: 2985467786846195255}
   elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:
