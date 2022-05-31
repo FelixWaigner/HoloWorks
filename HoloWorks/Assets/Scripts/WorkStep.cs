@@ -64,9 +64,12 @@ public class WorkStep : MonoBehaviour
         if (workstep.transform.GetSiblingIndex() != anchor.transform.childCount - 1)
         {
             SaveUIPosition(anchor.transform.GetChild(workstep.transform.GetSiblingIndex()).GetChild(1).gameObject);
-            anchor.transform.GetChild(workstep.transform.GetSiblingIndex()).gameObject.SetActive(false);
+            GameObject currentGO = anchor.transform.GetChild(workstep.transform.GetSiblingIndex()).gameObject;
+            currentGO.SetActive(false);
+            
             LoadUIPosition(anchor.transform.GetChild(workstep.transform.GetSiblingIndex() + 1).GetChild(1).gameObject);
-            anchor.transform.GetChild(workstep.transform.GetSiblingIndex() + 1).gameObject.SetActive(true);
+            GameObject nextGO = anchor.transform.GetChild(workstep.transform.GetSiblingIndex() + 1).gameObject;
+            nextGO.SetActive(true);
         }
     }
 
