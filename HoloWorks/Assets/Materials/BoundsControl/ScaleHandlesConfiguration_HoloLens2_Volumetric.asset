@@ -13,15 +13,12 @@ MonoBehaviour:
   m_Name: ScaleHandlesConfiguration_HoloLens2_Volumetric
   m_EditorClassIdentifier: 
   handleMaterial: {fileID: 2100000, guid: 986558eab447a9847bbe138149edc1b4, type: 2}
-  handleGrabbedMaterial: {fileID: 2100000, guid: bf37b5eab60b288498d02fd524325d10,
-    type: 2}
-  handlePrefab: {fileID: 1361136173122186969, guid: ba9083550f965e545a628b53bfa80c9e,
-    type: 3}
+  handleGrabbedMaterial: {fileID: 2100000, guid: bf37b5eab60b288498d02fd524325d10, type: 2}
+  handlePrefab: {fileID: 0}
   handleSize: 0.016
   colliderPadding: {x: 0.016, y: 0.016, z: 0.016}
   drawTetherWhenManipulating: 1
   handlesIgnoreCollider: {fileID: 0}
-  handleSlatePrefab: {fileID: 1134031327877807717, guid: c45e552a6d92491468c421c35c5dd63d,
-    type: 3}
+  handleSlatePrefab: {fileID: 0}
   showScaleHandles: 1
   scaleBehavior: 0

@@ -374,9 +374,9 @@ MonoBehaviour:
   boundsOverride: {fileID: 0}
   boundsCalculationMethod: 0
   activation: 4
-  flattenAxis: 4
+  flattenAxis: 0
   uniformScaleOnFlattenedAxis: 1
-  boxPadding: {x: 0.02, y: 0.02, z: 0.02}
+  boxPadding: {x: 0.04, y: 0.04, z: 0.04}
   boxDisplayConfiguration: {fileID: 11400000, guid: 192a0e5ef3b123c4d8bcc726203abaea, type: 2}
   linksConfiguration: {fileID: 11400000, guid: d917d883887cb3c40b4a71bcfc271c79, type: 2}
   scaleHandlesConfiguration: {fileID: 11400000, guid: 1d726a1579ac6a043bedf0a10042b370, type: 2}
