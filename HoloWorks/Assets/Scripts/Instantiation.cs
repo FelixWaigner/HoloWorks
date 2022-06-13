@@ -18,10 +18,13 @@ public class Instantiation : MonoBehaviour
         //Vector3 spawnPos = playerPos + playerDirection * spawnDistance;
 
         //Instantiate Objects in front of player
-        GameObject MaterialObject = Instantiate(MyObject);
+
+        //GameObject MaterialObject = Instantiate(MyObject);
+        GameObject MaterialObject = Instantiate(MyObject, transform.position + (transform.forward * (1/2)), transform.rotation);
         //MaterialObject.transform.position = spawnPos;
         //MaterialObject.transform.rotation = Quaternion.Euler(0, 0, 0);
-        GameObject ConfigObject = Instantiate(Resources.Load<GameObject>("Prefabs/ModelConfigPrefabs/BasicConfigs"));
+        //GameObject ConfigObject = Instantiate(Resources.Load<GameObject>("Prefabs/ModelConfigPrefabs/BasicConfigs"));
+        GameObject ConfigObject = Instantiate(Resources.Load<GameObject>("Prefabs/ModelConfigPrefabs/BasicConfigs"), transform.position + (transform.forward * (1/2)), transform.rotation);
         ConfigObject.transform.SetParent(ParentAnchor.transform);
 
         //Set ConfigurationObject as parent
