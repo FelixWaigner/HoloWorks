@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ae6b815054539c4cbce3013daf8f276, type: 3}
   m_Name: ProximityEffectConfiguration_HoloLens2_Volumetric
   m_EditorClassIdentifier: 
-  proximityEffectActive: 1
+  proximityEffectActive: 0
   objectMediumProximity: 0.1
   objectCloseProximity: 0.016
   farScale: 0

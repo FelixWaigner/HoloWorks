@@ -15,4 +15,4 @@ MonoBehaviour:
   wireframeMaterial: {fileID: 0}
   wireframeEdgeRadius: 0.001
   wireframeShape: 0
-  showWireframe: 0
+  showWireframe: 1
