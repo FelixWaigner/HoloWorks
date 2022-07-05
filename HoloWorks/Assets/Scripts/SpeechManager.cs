@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 using UnityEngine.Windows.Speech;
-using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 public class SpeechManager : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class SpeechManager : MonoBehaviour
 
     private void Start()
     {
+        keywordRecognizer = null;
+
         //Create keywords for keyword recognizer
         keywords.Add("bild", () =>
         {
@@ -55,6 +58,8 @@ public class SpeechManager : MonoBehaviour
         keywordRecognizer.OnPhraseRecognized += KeywordRecognizer_OnPhraseRecognized;
 
         keywordRecognizer.Start();
+
+        Debug.Log("-------- keywordRecognizer started --------");
     }
 
     private void KeywordRecognizer_OnPhraseRecognized(PhraseRecognizedEventArgs args)
