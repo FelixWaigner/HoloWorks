@@ -39,7 +39,7 @@ public class newSpeechManager : MonoBehaviour
             ToggleActive("Safety");
         });
 
-        keywords.Add("a r", () =>
+        keywords.Add("a air", () =>
         {
             for (int i = 0; i < anchor.transform.childCount; i++)
             {
@@ -51,6 +51,9 @@ public class newSpeechManager : MonoBehaviour
                     GameObject media = Go.transform.Find("3D Elements").Find("AR Elements").gameObject;
                     media.SetActive(!media.activeSelf);
                 }
+
+                GameObject button = Go.transform.Find("InstructionUI").Find("ButtonMediatypes").Find("PressableButtonHoloLens2Bar5H(Clone)").Find("ButtonCollection").Find("Button AR").Find("BackPlateToggleState").gameObject;
+                button.SetActive(!button.activeSelf);
             }
         });
 
@@ -114,6 +117,9 @@ public class newSpeechManager : MonoBehaviour
                 Debug.Log(Go.name);
                 GameObject media = Go.transform.Find("InstructionUI").Find("Mediatypes").Find(mediatype).gameObject;
                 media.SetActive(!media.activeSelf);
+
+                GameObject button = Go.transform.Find("InstructionUI").Find("ButtonMediatypes").Find("PressableButtonHoloLens2Bar5H(Clone)").Find("ButtonCollection").Find("Button " + mediatype).Find("BackPlateToggleState").gameObject;
+                button.SetActive(!button.activeSelf);
             }
         }
     }
