@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class UIData : MonoBehaviour
 {
@@ -26,6 +27,14 @@ public class UIData : MonoBehaviour
         if (InfoObject != null)
         {
             Info = InfoObject.GetComponent<Text>().text;
+        }
+        if (SecurityObject != null)
+        {
+            Security = SecurityObject.GetComponent<Text>().text;
+        }
+        if (VideoObject != null)
+        {
+            Video = VideoObject.GetComponent<VideoPlayer>().url;
         }
     }
 }
