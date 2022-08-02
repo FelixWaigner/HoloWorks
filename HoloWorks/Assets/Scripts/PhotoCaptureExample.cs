@@ -2,60 +2,97 @@ using UnityEngine;
 using System;
 using System.Linq;
 using UnityEngine.Windows.WebCam;
+using System.IO;
 
 public class PhotoCaptureExample : MonoBehaviour
 {
     PhotoCapture photoCaptureObject = null;
-    Texture2D targetTexture = null;
     public GameObject quad;
+
+    static readonly int TotalImagesToCapture = 1;
+    int capturedImageCount = 0;
+    public string filePath;
 
     // Use this for initialization
     public void TakePhoto()
     {
         Resolution cameraResolution = PhotoCapture.SupportedResolutions.OrderByDescending((res) => res.width * res.height).First();
-        targetTexture = new Texture2D(cameraResolution.width, cameraResolution.height);
+        Texture2D targetTexture = new Texture2D(cameraResolution.width, cameraResolution.height);
 
-        // Create a PhotoCapture object
         PhotoCapture.CreateAsync(false, delegate (PhotoCapture captureObject) {
+            Debug.Log("Created PhotoCapture Object");
             photoCaptureObject = captureObject;
-            CameraParameters cameraParameters = new CameraParameters();
-            cameraParameters.hologramOpacity = 0.0f;
-            cameraParameters.cameraResolutionWidth = cameraResolution.width;
-            cameraParameters.cameraResolutionHeight = cameraResolution.height;
-            cameraParameters.pixelFormat = CapturePixelFormat.BGRA32;
 
-            // Activate the camera
-            photoCaptureObject.StartPhotoModeAsync(cameraParameters, delegate (PhotoCapture.PhotoCaptureResult result) {
-                // Take a picture
-                photoCaptureObject.TakePhotoAsync(OnCapturedPhotoToMemory);
+            CameraParameters c = new CameraParameters();
+            c.hologramOpacity = 0.0f;
+            c.cameraResolutionWidth = targetTexture.width;
+            c.cameraResolutionHeight = targetTexture.height;
+            c.pixelFormat = CapturePixelFormat.BGRA32;
+
+            captureObject.StartPhotoModeAsync(c, delegate (PhotoCapture.PhotoCaptureResult result) {
+                Debug.Log("Started Photo Capture Mode");
+                TakePicture();
             });
         });
     }
 
-    void OnCapturedPhotoToMemory(PhotoCapture.PhotoCaptureResult result, PhotoCaptureFrame photoCaptureFrame)
+    void OnCapturedPhotoToDisk(PhotoCapture.PhotoCaptureResult result)
     {
-        // Copy the raw image data into the target texture
-        photoCaptureFrame.UploadImageDataToTexture(targetTexture);
+        Debug.Log("Saved Picture To Disk!");
 
-        // Create a GameObject to which the texture can be applied
-        //GameObject quad = GameObject.CreatePrimitive(PrimitiveType.Quad);
-        Renderer quadRenderer = quad.GetComponent<Renderer>() as Renderer;
-        quadRenderer.material = new Material(Shader.Find("Legacy Shaders/Diffuse")); //Custom/Unlit/UnlitTexture
+        if (capturedImageCount < TotalImagesToCapture)
+        {
+            TakePicture();
+        }
+        else
+        {
+            photoCaptureObject.StopPhotoModeAsync(OnStoppedPhotoMode);
+        }
+    }
 
-        //quad.transform.parent = this.transform;
-        //quad.transform.localPosition = new Vector3(0.0f, 0.0f, 3.0f);
-
-        quadRenderer.material.SetTexture("_MainTex", targetTexture);
-
-        // Deactivate the camera
-        photoCaptureObject.StopPhotoModeAsync(OnStoppedPhotoMode);
+    void TakePicture()
+    {
+        capturedImageCount++;
+        var uuid = Guid.NewGuid();
+        Debug.Log(string.Format("Taking Picture ({0}/{1})...", capturedImageCount, TotalImagesToCapture));
+        string filename = string.Format($"img_{uuid}.jpg");
+        filePath = System.IO.Path.Combine(Application.persistentDataPath, filename);
+        photoCaptureObject.TakePhotoAsync(filePath, PhotoCaptureFileOutputFormat.JPG, OnCapturedPhotoToDisk);
+        Debug.Log(filePath);
     }
 
     void OnStoppedPhotoMode(PhotoCapture.PhotoCaptureResult result)
     {
-        // Shutdown the photo capture resource
         photoCaptureObject.Dispose();
         photoCaptureObject = null;
+
+        Debug.Log("Captured images have been saved at the following path.");
+        Debug.Log(Application.persistentDataPath);
+
+
+        LoadImage(filePath);
+    }
+
+    public void loadPhoto()
+    {
+        LoadImage("C:/Users/Waign/AppData/LocalLow/DefaultCompany/HoloWorks/img_81151410-4dc2-473c-8772-f076ae3c7eee.jpg");
+    }
+
+    public void LoadImage(string path)
+    {
+        if (File.Exists(path))
+        {
+            byte[] bytes = File.ReadAllBytes(path);
+            Texture2D tex = new Texture2D(2, 2);
+            tex.LoadImage(bytes);
+            Renderer quadRenderer = quad.GetComponent<Renderer>() as Renderer;
+            quadRenderer.material = new Material(Shader.Find("Legacy Shaders/Diffuse")); //Custom/Unlit/UnlitTexture
+            quadRenderer.material.SetTexture("_MainTex", tex);
+        }
+        else
+        {
+            Debug.LogError("File does not exist");
+        }
     }
 }
 

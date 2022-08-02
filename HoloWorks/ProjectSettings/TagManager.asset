@@ -6,6 +6,7 @@ TagManager:
   tags:
   - AppBar
   - Anchor
+  - DataManager
   layers:
   - Default
   - TransparentFX

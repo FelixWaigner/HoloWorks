@@ -26,7 +26,7 @@ namespace Microsoft.MixedReality.Toolkit.Examples.Demos
 #endif
 
         [SerializeField]
-        private Text debugMessage = null;
+        public Text debugMessage = null;
 
 #pragma warning disable 0414
         [SerializeField]
