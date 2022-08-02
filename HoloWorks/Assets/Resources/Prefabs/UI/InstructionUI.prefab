@@ -2037,7 +2037,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1848663669932019247}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.308, y: 0.2712, z: 0.32}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6364682533831409904}
@@ -16674,6 +16674,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 991dff2ae090fff47a5ab180b24bae62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InfoButton: {fileID: 0}
+  SecurityButton: {fileID: 0}
+  ImageButton: {fileID: 0}
+  VideoButton: {fileID: 0}
   Title: 
   Info: 
   Security: 
@@ -16684,6 +16688,8 @@ MonoBehaviour:
   SecurityObject: {fileID: 0}
   ImageObject: {fileID: 0}
   VideoObject: {fileID: 0}
+  AR: {fileID: 0}
+  arElements: []
 --- !u!1 &6277735662124898223
 GameObject:
   m_ObjectHideFlags: 0

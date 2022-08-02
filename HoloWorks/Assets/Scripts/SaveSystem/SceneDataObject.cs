@@ -9,7 +9,7 @@ public class SceneDataObject : MonoBehaviour
 {
     public GameObject anchor;
     public SaveList saveObjects = new SaveList();
-    public GameObject[] dataManagers;
+    //public GameObject[] dataManagers;
 
     public void saveData()
     {
@@ -32,6 +32,7 @@ public class SceneDataObject : MonoBehaviour
             data.Security = dataClass.Security;
             data.Image = dataClass.Image;
             data.Video = dataClass.Video;
+            data.Elements = dataClass.arElements;
 
             saveObjects.saveData.Add(data);
         }
@@ -61,6 +62,7 @@ public class SceneDataObject : MonoBehaviour
         {
             GameObject UiObject = Instantiate(Resources.Load<GameObject>("Prefabs/UI/UI"));
             UiObject.transform.SetParent(anchor.transform);
+            UiObject.transform.position = new Vector3(0, 0, 0);
             UiObject.name = obj.id;
             
 
@@ -96,7 +98,24 @@ public class SceneDataObject : MonoBehaviour
                 updatePicture.LoadImage(obj.Image);
             }
 
+            if (obj.Elements.Count > 0 )
+            {
 
+                UiObject.transform.Find("OptionsHandMenu").Find("MenuContent").Find("Tabs").Find("AR").gameObject.SetActive(true);
+                UiObject.transform.Find("OptionsHandMenu").Find("MenuContent").Find("Tabs").Find("AR").GetComponent<AuthorToggleActive>().setToggleActive();
+                UiObject.transform.Find("OptionsHandMenu").Find("MenuContent").Find("Tabs").Find("AR").gameObject.SetActive(false);
+
+                foreach (ArElement element in obj.Elements)
+                {
+                    GameObject newArObj = UiObject.transform.Find("3D Elements").GetComponent<Instantiation>().InstantiateSavedObject(Resources.Load<GameObject>("3D Objects/" + element.name));
+                    Vector3 pos;
+                    pos.x = element.position[0];
+                    pos.y = element.position[1];
+                    pos.z = element.position[2];
+                    Debug.Log(newArObj);
+                    newArObj.transform.GetChild(0).localPosition = pos;
+                }
+            }
 
             if (UiObject.name != "0")
             {
@@ -125,9 +144,16 @@ public class SaveObject
     public string Security;
     public string Image;
     public string Video;
+    public List<ArElement> Elements;
 }
 
 
+[System.Serializable]
+public class ArElement
+{
+    public string name;
+    public float[] position;
+}
 
 [System.Serializable]
 public class SaveList

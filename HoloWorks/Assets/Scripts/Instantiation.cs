@@ -20,15 +20,20 @@ public class Instantiation : MonoBehaviour
         //Instantiate Objects in front of player
 
         //GameObject MaterialObject = Instantiate(MyObject);
-        GameObject MaterialObject = Instantiate(MyObject, transform.position + (transform.forward * (1/2)), transform.rotation);
+        GameObject MaterialObject = Instantiate(MyObject, new Vector3(0,0,0), Quaternion.identity);
+        MaterialObject.name = MyObject.name;
         //MaterialObject.transform.position = spawnPos;
         //MaterialObject.transform.rotation = Quaternion.Euler(0, 0, 0);
         //GameObject ConfigObject = Instantiate(Resources.Load<GameObject>("Prefabs/ModelConfigPrefabs/BasicConfigs"));
-        GameObject ConfigObject = Instantiate(Resources.Load<GameObject>("Prefabs/ModelConfigPrefabs/BasicConfigs"), transform.position + (transform.forward * (1/2)), transform.rotation);
+        GameObject ConfigObject = Instantiate(Resources.Load<GameObject>("Prefabs/ModelConfigPrefabs/BasicConfigs"), new Vector3(0,0,0), Quaternion.identity);
+        //MaterialObject.transform.position = transform.position + transform.forward * (1 / 2);
         ConfigObject.transform.SetParent(ParentAnchor.transform);
 
+        GameObject childObj = ConfigObject.transform.GetChild(0).gameObject;
+
         //Set ConfigurationObject as parent
-        MaterialObject.transform.SetParent(ConfigObject.transform.GetChild(0));
+        MaterialObject.transform.SetParent(childObj.transform);
+        childObj.transform.position = transform.position + transform.forward * (1 / 2);
 
         //Move OffsetHelper to the left border of the 3D Object
         //GameObject ObjectPlaceholder = ConfigObject.transform.GetChild(0).gameObject;
@@ -38,5 +43,20 @@ public class Instantiation : MonoBehaviour
         //Toggle Active state to apply changes
         ConfigObject.SetActive(false);
         ConfigObject.SetActive(true);
-     }
+    }
+
+    public GameObject InstantiateSavedObject(GameObject markerModel)
+    {
+        GameObject MaterialObject = Instantiate(markerModel);
+        MaterialObject.name = markerModel.name;
+        GameObject ConfigObject = Instantiate(Resources.Load<GameObject>("Prefabs/ModelConfigPrefabs/BasicConfigs"));
+        ConfigObject.transform.SetParent(ParentAnchor.transform);
+
+        MaterialObject.transform.SetParent(ConfigObject.transform.GetChild(0));
+
+        ConfigObject.SetActive(false);
+        ConfigObject.SetActive(true);
+
+        return ConfigObject;
+    }
 }
