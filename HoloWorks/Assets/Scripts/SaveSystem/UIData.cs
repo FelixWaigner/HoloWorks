@@ -47,9 +47,20 @@ public class UIData : MonoBehaviour
 
             Debug.Log(element.name);
             data.position = new float[3];
-            data.position[0] = arObj.transform.position.x;
-            data.position[1] = arObj.transform.position.y;
-            data.position[2] = arObj.transform.position.z;
+            data.position[0] = arObj.transform.localPosition.x;
+            data.position[1] = arObj.transform.localPosition.y;
+            data.position[2] = arObj.transform.localPosition.z;
+
+            data.rotation = new float[3];
+            data.rotation[0] = arObj.transform.eulerAngles.x;
+            data.rotation[1] = arObj.transform.eulerAngles.y;
+            data.rotation[2] = arObj.transform.eulerAngles.z;
+
+            data.scale = new float[3];
+            data.scale[0] = arObj.transform.localScale.x;
+            data.scale[1] = arObj.transform.localScale.y;
+            data.scale[2] = arObj.transform.localScale.z;
+
             arElements.Add(data);
         }
     }

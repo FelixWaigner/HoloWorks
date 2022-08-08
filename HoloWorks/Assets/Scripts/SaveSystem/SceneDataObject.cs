@@ -107,13 +107,25 @@ public class SceneDataObject : MonoBehaviour
 
                 foreach (ArElement element in obj.Elements)
                 {
+                   
                     GameObject newArObj = UiObject.transform.Find("3D Elements").GetComponent<Instantiation>().InstantiateSavedObject(Resources.Load<GameObject>("3D Objects/" + element.name));
                     Vector3 pos;
                     pos.x = element.position[0];
                     pos.y = element.position[1];
                     pos.z = element.position[2];
-                    Debug.Log(newArObj);
                     newArObj.transform.GetChild(0).localPosition = pos;
+
+                    Vector3 rot;
+                    rot.x = element.rotation[0];
+                    rot.y = element.rotation[1];
+                    rot.z = element.rotation[2];
+                    newArObj.transform.GetChild(0).rotation = Quaternion.Euler(rot);
+
+                    Vector3 scale;
+                    scale.x = element.scale[0];
+                    scale.y = element.scale[1];
+                    scale.z = element.scale[2];
+                    newArObj.transform.GetChild(0).localScale = scale;
                 }
             }
 
@@ -153,6 +165,8 @@ public class ArElement
 {
     public string name;
     public float[] position;
+    public float[] rotation;
+    public float[] scale;
 }
 
 [System.Serializable]
