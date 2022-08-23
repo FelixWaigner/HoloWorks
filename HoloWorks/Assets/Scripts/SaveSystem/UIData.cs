@@ -71,9 +71,9 @@ public class UIData : MonoBehaviour
         saveManagerObject.saveData();
     }
 
-    public void loadDataButtonHelper()
+    /*public void loadDataButtonHelper()
     {
         var saveManagerObject = GameObject.Find("SaveManager").GetComponent<SceneDataObject>();
         saveManagerObject.loadData();
-    }
+    }*/
 }

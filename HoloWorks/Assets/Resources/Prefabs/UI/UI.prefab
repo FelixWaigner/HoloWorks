@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 3755119099752363844}
   - component: {fileID: 6447371337711815895}
   m_Layer: 5
-  m_Name: UITextSelawikSemibold
+  m_Name: InfoText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -905,7 +905,7 @@ GameObject:
   - component: {fileID: 4646021999196216151}
   - component: {fileID: 2339543178746553565}
   m_Layer: 5
-  m_Name: UITextSelawikSemibold
+  m_Name: SavetyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3139,15 +3139,14 @@ PrefabInstance:
     - target: {fileID: 5484194523599300629, guid: 7c6be8c406734b641b3e27c05551247a, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 7794952451031651557}
+      objectReference: {fileID: 2753042099252847840}
     - target: {fileID: 5484194523599300629, guid: 7c6be8c406734b641b3e27c05551247a, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OpenSystemKeyboard
       objectReference: {fileID: 0}
     - target: {fileID: 5484194523599300629, guid: 7c6be8c406734b641b3e27c05551247a, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Microsoft.MixedReality.Toolkit.Examples.Demos.SystemKeyboardExample,
-        Assembly-CSharp
+      value: OpenKeyboard, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5566621780514743376, guid: 7c6be8c406734b641b3e27c05551247a, type: 3}
       propertyPath: profiles.Array.size
@@ -3305,15 +3304,14 @@ PrefabInstance:
     - target: {fileID: 6555451837633600092, guid: 7c6be8c406734b641b3e27c05551247a, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 482281990809167400}
+      objectReference: {fileID: 2245415707839511261}
     - target: {fileID: 6555451837633600092, guid: 7c6be8c406734b641b3e27c05551247a, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OpenSystemKeyboard
       objectReference: {fileID: 0}
     - target: {fileID: 6555451837633600092, guid: 7c6be8c406734b641b3e27c05551247a, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Microsoft.MixedReality.Toolkit.Examples.Demos.SystemKeyboardExample,
-        Assembly-CSharp
+      value: OpenKeyboard, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7101323424303291930, guid: 7c6be8c406734b641b3e27c05551247a, type: 3}
       propertyPath: m_IsActive
@@ -3362,15 +3360,14 @@ PrefabInstance:
     - target: {fileID: 8213288819807229983, guid: 7c6be8c406734b641b3e27c05551247a, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 6590314682461094914}
+      objectReference: {fileID: 4757439186103802170}
     - target: {fileID: 8213288819807229983, guid: 7c6be8c406734b641b3e27c05551247a, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OpenSystemKeyboard
       objectReference: {fileID: 0}
     - target: {fileID: 8213288819807229983, guid: 7c6be8c406734b641b3e27c05551247a, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Microsoft.MixedReality.Toolkit.Examples.Demos.SystemKeyboardExample,
-        Assembly-CSharp
+      value: OpenKeyboard, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8422659716483466043, guid: 7c6be8c406734b641b3e27c05551247a, type: 3}
       propertyPath: m_Name
@@ -3701,6 +3698,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textContent: {fileID: 4015419606468412409}
+--- !u!114 &2753042099252847840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831935144481702655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e69e13c1fb2bf645b91d226f1b3b4a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetText: {fileID: 4015419606468412409}
+  keyboardText: 
 --- !u!114 &4144882028479972167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3717,21 +3728,6 @@ MonoBehaviour:
   Button: {fileID: 1648146422181045510}
   AuthorContentButtons: {fileID: 514719641451278296}
   CompressedButtonVisuals: {fileID: 1648146421714850831}
---- !u!114 &7794952451031651557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 831935144481702655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a437ccd5220568b42883b7472582b570, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  debugMessage: {fileID: 4015419606468412409}
-  mixedRealityKeyboardPreview: {fileID: 0}
-  disableUIInteractionWhenTyping: 0
 --- !u!114 &1078560833575364306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3803,7 +3799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextScene: Prototyping
---- !u!114 &482281990809167400
+--- !u!114 &2245415707839511261
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3812,12 +3808,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4022044121272582105}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a437ccd5220568b42883b7472582b570, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e69e13c1fb2bf645b91d226f1b3b4a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugMessage: {fileID: 1648146421671459234}
-  mixedRealityKeyboardPreview: {fileID: 0}
-  disableUIInteractionWhenTyping: 0
+  TargetText: {fileID: 1648146421671459234}
+  keyboardText: 
 --- !u!114 &8778621194458826038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3863,6 +3858,20 @@ MonoBehaviour:
   debugMessage: {fileID: 175670765661104058}
   mixedRealityKeyboardPreview: {fileID: 0}
   disableUIInteractionWhenTyping: 0
+--- !u!114 &4757439186103802170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6794213761175100255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e69e13c1fb2bf645b91d226f1b3b4a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetText: {fileID: 175670765661104058}
+  keyboardText: 
 --- !u!114 &6578336023620401065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3879,21 +3888,6 @@ MonoBehaviour:
   Button: {fileID: 1648146421833480408}
   AuthorContentButtons: {fileID: 1658256182397733671}
   CompressedButtonVisuals: {fileID: 1648146421523050703}
---- !u!114 &6590314682461094914
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6794213761175100255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a437ccd5220568b42883b7472582b570, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  debugMessage: {fileID: 175670765661104058}
-  mixedRealityKeyboardPreview: {fileID: 0}
-  disableUIInteractionWhenTyping: 0
 --- !u!114 &8155387873374932189
 MonoBehaviour:
   m_ObjectHideFlags: 0

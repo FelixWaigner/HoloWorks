@@ -9,8 +9,15 @@ public class SceneDataObject : MonoBehaviour
 {
     public GameObject anchor;
     public SaveList saveObjects = new SaveList();
+
     //public GameObject[] dataManagers;
 
+
+    private void Awake()
+    {
+        var fp = GameObject.Find("TraineeTrainerManager").GetComponent<TraineeTrainerManager>();
+        loadData(fp.filePath);
+    }
     public void saveData()
     {
         saveObjects.saveData.Clear();
@@ -27,7 +34,7 @@ public class SceneDataObject : MonoBehaviour
             var dataClass = child.Find("InstructionUI").Find("DataManager").GetComponent<UIData>();
             dataClass.WriteUiData();
             data.id = child.name;
-            data.Title = "asdf1qwer";
+            data.Title = dataClass.Title;
             data.Info = dataClass.Info;
             data.Security = dataClass.Security;
             data.Image = dataClass.Image;
@@ -49,9 +56,9 @@ public class SceneDataObject : MonoBehaviour
         }
     }
 
-    public void loadData()
+    public void loadData(string filePath)
     {
-        saveObjects = SaveManager.Load();
+        saveObjects = SaveManager.Load(filePath);
 
         foreach (Transform child in anchor.transform)
         {
@@ -65,13 +72,34 @@ public class SceneDataObject : MonoBehaviour
             UiObject.transform.position = new Vector3(0, 0, 0);
             UiObject.name = obj.id;
             
+            
 
-            GameObject textfield = UiObject.transform.Find("OptionsHandMenu").Find("MenuContent").Find("Tabs").Find("Title").gameObject;
-            var updateText = textfield.GetComponent<SystemKeyboardExample>();
-            updateText.debugMessage.text = "asdasdasdasd";
 
-            UiObject.transform.Find("InstructionUI").Find("UITextSelawikSemibold").Find("InstructionText").GetComponent<Text>().text = "hallo";
+            //Add Title
+            if(obj.Title != "")
+            {
+                UiObject.transform.Find("InstructionUI").Find("UITextSelawikSemibold").Find("InstructionText").GetComponent<Text>().text = obj.Title;
+            }
 
+            //Add Description
+            if (obj.Info != "")
+            {
+                UiObject.transform.Find("OptionsHandMenu").Find("MenuContent").Find("Tabs").Find("Info").gameObject.SetActive(true);
+                UiObject.transform.Find("OptionsHandMenu").Find("MenuContent").Find("Tabs").Find("Info").GetComponent<AuthorToggleActive>().setToggleActive();
+                UiObject.transform.Find("OptionsHandMenu").Find("MenuContent").Find("Tabs").Find("Info").gameObject.SetActive(false);
+
+                UiObject.transform.Find("InstructionUI").Find("Mediatypes").Find("Info").Find("InfoText").Find("DescriptionText").GetComponent<Text>().text = obj.Info;
+            }
+
+            //Add Savety
+            if (obj.Security != "")
+            {
+                UiObject.transform.Find("OptionsHandMenu").Find("MenuContent").Find("Tabs").Find("Safety").gameObject.SetActive(true);
+                UiObject.transform.Find("OptionsHandMenu").Find("MenuContent").Find("Tabs").Find("Safety").GetComponent<AuthorToggleActive>().setToggleActive();
+                UiObject.transform.Find("OptionsHandMenu").Find("MenuContent").Find("Tabs").Find("Safety").gameObject.SetActive(false);
+
+                UiObject.transform.Find("InstructionUI").Find("Mediatypes").Find("Safety").Find("SavetyText").Find("SafetyText").GetComponent<Text>().text = obj.Security;
+            }
 
             //Add Video
             if (obj.Video != "")
@@ -140,8 +168,15 @@ public class SceneDataObject : MonoBehaviour
             UiDataManager.Security = obj.Security;
             UiDataManager.Image = obj.Image;
             UiDataManager.Video = obj.Video;
-        }
 
+
+            if (GameObject.Find("TraineeTrainerManager").GetComponent<TraineeTrainerManager>().user == "Trainee")
+            {
+                UiObject.transform.Find("OptionsHandMenu").gameObject.SetActive(false);
+                UiObject.transform.Find("OptionsHandMenu").gameObject.SetActive(true);
+                UiObject.transform.Find("OptionsHandMenu").gameObject.SetActive(false);
+            }
+        }
 
         Debug.Log("...LOAD...");
     }

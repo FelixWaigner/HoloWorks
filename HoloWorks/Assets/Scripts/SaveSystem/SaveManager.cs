@@ -20,14 +20,14 @@ public static class SaveManager
         File.WriteAllText(dir + fileName, json);
     }
 
-    public static SaveList Load()
+    public static SaveList Load(string filePath)
     {
-        string fullPath = Application.persistentDataPath + directory + fileName;
+        //string fullPath = Application.persistentDataPath + directory + fileName;
         SaveList data = new SaveList();
 
-        if(File.Exists(fullPath))
+        if(File.Exists(filePath))
         {
-            string json = File.ReadAllText(fullPath);
+            string json = File.ReadAllText(filePath);
             data = JsonUtility.FromJson<SaveList>(json);
         }
         else

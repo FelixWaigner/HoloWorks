@@ -24,7 +24,6 @@ namespace Microsoft.MixedReality.Toolkit.Examples.Demos
 #elif UNITY_IOS || UNITY_ANDROID
         private TouchScreenKeyboard touchscreenKeyboard;
 #endif
-
         [SerializeField]
         public Text debugMessage = null;
 
