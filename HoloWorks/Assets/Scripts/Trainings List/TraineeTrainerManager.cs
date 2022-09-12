@@ -7,6 +7,7 @@ public class TraineeTrainerManager : MonoBehaviour
     private static GameObject instance;
     public string user;
     public string filePath;
+    public string fileName;
 
     private void Awake()
     {

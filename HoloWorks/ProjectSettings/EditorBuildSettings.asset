@@ -12,11 +12,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Main.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 0
-    path: Assets/Scenes/ZF Demonstrator.unity
+    path: Assets/Scenes/_Prototyping/ZF Demonstrator.unity
     guid: 86be084e6b98ec34e962342ab25802b3
   - enabled: 0
-    path: Assets/Scenes/Prototyping.unity
+    path: Assets/Scenes/_Prototyping/Prototyping.unity
     guid: b7047c8d0407d0242825a117ee054cd5
+  - enabled: 1
+    path: Assets/Scenes/List.unity
+    guid: 59e2aa4cf018ab043a9cc26f15305d1b
+  - enabled: 1
+    path: Assets/Scenes/TrainingName.unity
+    guid: 9e1b083c016fa6542a67d83ab4289541
   m_configObjects:
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: d53b924221929fc4496a9bc565cd4a81, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 0f5271b7fd2fa1f47a452db32969636a, type: 2}

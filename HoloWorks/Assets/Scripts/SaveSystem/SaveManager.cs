@@ -6,7 +6,6 @@ using UnityEngine;
 public static class SaveManager 
 {
     public static string directory = "/SaveData/";
-    public static string fileName = "SaveFile.txt";
 
 
     public static void Save(SaveList data)
@@ -17,6 +16,8 @@ public static class SaveManager
             Directory.CreateDirectory(dir);
 
         string json = JsonUtility.ToJson(data);
+
+        string fileName = GameObject.Find("TraineeTrainerManager").GetComponent<TraineeTrainerManager>().fileName;
         File.WriteAllText(dir + fileName, json);
     }
 

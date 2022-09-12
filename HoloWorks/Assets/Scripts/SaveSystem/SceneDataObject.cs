@@ -1,4 +1,6 @@
 using Microsoft.MixedReality.Toolkit.Examples.Demos;
+using Microsoft.MixedReality.Toolkit.UI;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,7 +18,10 @@ public class SceneDataObject : MonoBehaviour
     private void Awake()
     {
         var fp = GameObject.Find("TraineeTrainerManager").GetComponent<TraineeTrainerManager>();
-        loadData(fp.filePath);
+        if (fp.filePath != "")
+        {
+            loadData(fp.filePath);
+        }
     }
     public void saveData()
     {
@@ -172,6 +177,25 @@ public class SceneDataObject : MonoBehaviour
 
             if (GameObject.Find("TraineeTrainerManager").GetComponent<TraineeTrainerManager>().user == "Trainee")
             {
+
+                GameObject[] appBars;
+                appBars = GameObject.FindGameObjectsWithTag("AppBar");
+
+                foreach(GameObject appBar in appBars)
+                {
+                    appBar.SetActive(false);
+                }
+
+                foreach(Transform child in anchor.transform)
+                {
+                    GameObject arElements = child.Find("3D Elements").Find("AR Elements").gameObject;
+
+                    foreach(Transform arElement in arElements.transform)
+                    {
+                        arElement.Find("Object").GetComponent<ManipulationHandler>().enabled = false;
+                    }
+                }
+
                 UiObject.transform.Find("OptionsHandMenu").gameObject.SetActive(false);
                 UiObject.transform.Find("OptionsHandMenu").gameObject.SetActive(true);
                 UiObject.transform.Find("OptionsHandMenu").gameObject.SetActive(false);
@@ -179,6 +203,11 @@ public class SceneDataObject : MonoBehaviour
         }
 
         Debug.Log("...LOAD...");
+    }
+
+    private void FindGameObjectsWithTag(string v)
+    {
+        throw new NotImplementedException();
     }
 }
 
