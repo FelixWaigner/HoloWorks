@@ -691,7 +691,7 @@ MonoBehaviour:
   startDimensionIndex: 0
   CanSelect: 0
   CanDeselect: 0
-  voiceCommand: Select
+  VoiceCommand: 
   voiceRequiresFocus: 1
   profiles:
   - Target: {fileID: 0}
@@ -1041,6 +1041,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05db212a0db9c314784cf6ab45a2b966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonText: {fileID: 2988801230025422563}
 --- !u!1 &2988801231539371353
 GameObject:
   m_ObjectHideFlags: 0

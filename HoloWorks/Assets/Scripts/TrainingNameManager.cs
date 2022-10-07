@@ -12,8 +12,6 @@ public class TrainingNameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //TTM.fileName = Text.text;
-        Text.text = "save123";
         managerText  = GameObject.Find("TraineeTrainerManager").GetComponent<TraineeTrainerManager>().fileName = Text.text;
     }
 

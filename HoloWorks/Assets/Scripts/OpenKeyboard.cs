@@ -20,6 +20,6 @@ public class OpenKeyboard : MonoBehaviour
     }
     public void OpenSystemKeyboard()
     {
-        keyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default, false, false, false, false);
+        keyboard = TouchScreenKeyboard.Open(TargetText.text, TouchScreenKeyboardType.Default, false, false, false, false);
     }
 }

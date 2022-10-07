@@ -6,9 +6,12 @@ using UnityEngine.UI;
 public class AuthorDeleteText : MonoBehaviour
 {
     public Text textContent;
+    public GameObject KeyboardGo;
 
     public void DeleteText()
     {
-        textContent.text = "test";
+        KeyboardGo.GetComponent<OpenKeyboard>().keyboard.text = "";
+        KeyboardGo.GetComponent<OpenKeyboard>().keyboardText = "";
+        textContent.text = "";
     }
 }

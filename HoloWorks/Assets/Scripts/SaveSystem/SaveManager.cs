@@ -19,6 +19,7 @@ public static class SaveManager
 
         string fileName = GameObject.Find("TraineeTrainerManager").GetComponent<TraineeTrainerManager>().fileName;
         File.WriteAllText(dir + fileName, json);
+        Debug.Log(dir + fileName);
     }
 
     public static SaveList Load(string filePath)

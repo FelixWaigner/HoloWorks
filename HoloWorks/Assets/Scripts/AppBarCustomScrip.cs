@@ -11,6 +11,8 @@ public class AppBarCustomScrip : MonoBehaviour
     public void Dublicate()
     {
         var obj = Instantiate(BasicConfig, transform.position + (transform.forward * (1 / 2)), transform.rotation);
+        obj.transform.SetParent(this.gameObject.transform.parent.transform.parent);
+        obj.name = "BasicConfigs(Clone)";
 
         //Delete The rigRoot in the Object GameObject (If not deleted the Object is not behaving as it should!)
         GameObject RigRoot = obj.transform.Find("Object").transform.Find("rigRoot").gameObject;

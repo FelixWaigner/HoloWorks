@@ -24,8 +24,8 @@ public class UIData : MonoBehaviour
     public GameObject VideoObject;
     public GameObject AR;
     public List<ArElement> arElements;
-    
 
+    public GameObject savedPlate;
      
 
     public void WriteUiData()
@@ -69,6 +69,8 @@ public class UIData : MonoBehaviour
     {
         var saveManagerObject = GameObject.Find("SaveManager").GetComponent<SceneDataObject>();
         saveManagerObject.saveData();
+
+        Instantiate(Resources.Load<GameObject>("Prefabs/UI/SaveBackToMenu"));
     }
 
     /*public void loadDataButtonHelper()

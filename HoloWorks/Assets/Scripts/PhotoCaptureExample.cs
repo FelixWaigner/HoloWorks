@@ -3,11 +3,13 @@ using System;
 using System.Linq;
 using UnityEngine.Windows.WebCam;
 using System.IO;
+using System.Threading;
+using TMPro;
 
 public class PhotoCaptureExample : MonoBehaviour
 {
     PhotoCapture photoCaptureObject = null;
-    public GameObject quad;
+    public GameObject pictureMaterial;
 
     static readonly int TotalImagesToCapture = 1;
     int capturedImageCount = 0;
@@ -16,6 +18,10 @@ public class PhotoCaptureExample : MonoBehaviour
     // Use this for initialization
     public void TakePhoto()
     {
+        GameObject CdObjs = Instantiate(Resources.Load<GameObject>("Prefabs/UI/Countdown"), new Vector3(0, 0, 0), Quaternion.identity);
+        GameObject camera = GameObject.FindGameObjectWithTag("MainCamera");
+        CdObjs.transform.SetParent(camera.transform);
+        CdObjs.transform.position = transform.position + transform.forward * (1 / 2);
         Resolution cameraResolution = PhotoCapture.SupportedResolutions.OrderByDescending((res) => res.width * res.height).First();
         Texture2D targetTexture = new Texture2D(cameraResolution.width, cameraResolution.height);
 
@@ -85,14 +91,22 @@ public class PhotoCaptureExample : MonoBehaviour
             byte[] bytes = File.ReadAllBytes(path);
             Texture2D tex = new Texture2D(2, 2);
             tex.LoadImage(bytes);
-            Renderer quadRenderer = quad.GetComponent<Renderer>() as Renderer;
+            Renderer quadRenderer = pictureMaterial.GetComponent<Renderer>() as Renderer;
             quadRenderer.material = new Material(Shader.Find("Legacy Shaders/Diffuse")); //Custom/Unlit/UnlitTexture
             quadRenderer.material.SetTexture("_MainTex", tex);
+
+            pictureMaterial.SetActive(true);
         }
         else
         {
             Debug.LogError("File does not exist");
         }
+    }
+
+    public void Countdown()
+    {
+
+
     }
 }
 

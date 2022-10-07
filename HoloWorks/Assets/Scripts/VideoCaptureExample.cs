@@ -17,6 +17,7 @@ public class VideoCaptureExample : MonoBehaviour
     VideoCapture webcamVideoCaptureObject;
     public VideoCapture VideoPlayerObject;
     string videoFilePath;
+    public GameObject videoContainer;
 
     public void RecordVideo()
     {
@@ -61,6 +62,7 @@ public class VideoCaptureExample : MonoBehaviour
         videoPlayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
         videoPlayer.EnableAudioTrack(0, true);
         videoPlayer.Prepare();
+        videoContainer.SetActive(true);
     }
 
     void OnStartedVideoCaptureMode(VideoCapture.VideoCaptureResult result)

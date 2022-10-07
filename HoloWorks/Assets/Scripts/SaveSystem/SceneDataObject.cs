@@ -12,6 +12,8 @@ public class SceneDataObject : MonoBehaviour
     public GameObject anchor;
     public SaveList saveObjects = new SaveList();
 
+    private string currentStep;
+
     //public GameObject[] dataManagers;
 
 
@@ -29,6 +31,10 @@ public class SceneDataObject : MonoBehaviour
 
         foreach (Transform child in anchor.transform)
         {
+            if(child.gameObject.activeSelf == true)
+            {
+                currentStep = child.name;
+            }    
             child.gameObject.SetActive(true);
         }
 
@@ -54,7 +60,7 @@ public class SceneDataObject : MonoBehaviour
 
         foreach (Transform child in anchor.transform)
         {
-            if (child.name != "0")
+            if (child.name != currentStep)
             {
                 child.gameObject.SetActive(false);
             }

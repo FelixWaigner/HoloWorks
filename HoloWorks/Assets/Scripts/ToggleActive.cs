@@ -13,6 +13,11 @@ public class ToggleActive : MonoBehaviour
         //set the different active state
         gameObject.SetActive(!isActive);
     }
+
+    public void DestoryObject()
+    {
+        Destroy(gameObject);
+    }
 }
 
 
