@@ -28,9 +28,9 @@ public class WorkStep : MonoBehaviour
     }
     public void CreateNewWorkStep()
     {
-        GameObject instruction = Instantiate(Resources.Load<GameObject>("Prefabs/UI/UI"));
 
         GameObject anchor = GameObject.FindWithTag("Anchor");
+        GameObject instruction = Instantiate(Resources.Load<GameObject>("Prefabs/UI/UI"), anchor.transform);
 
         instruction.name = anchor.transform.childCount.ToString();
 

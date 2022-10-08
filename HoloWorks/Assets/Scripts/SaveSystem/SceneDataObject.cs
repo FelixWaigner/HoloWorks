@@ -14,56 +14,12 @@ public class SceneDataObject : MonoBehaviour
 
     private string currentStep;
 
-    //public GameObject[] dataManagers;
-
-
-    private void Awake()
+    public void init()
     {
         var fp = GameObject.Find("TraineeTrainerManager").GetComponent<TraineeTrainerManager>();
         if (fp.filePath != "")
         {
             loadData(fp.filePath);
-        }
-    }
-    public void saveData()
-    {
-        saveObjects.saveData.Clear();
-
-        foreach (Transform child in anchor.transform)
-        {
-            if(child.gameObject.activeSelf == true)
-            {
-                currentStep = child.name;
-            }    
-            child.gameObject.SetActive(true);
-        }
-
-        foreach (Transform child in anchor.transform)
-        {
-            SaveObject data = new SaveObject();
-           
-            var dataClass = child.Find("InstructionUI").Find("DataManager").GetComponent<UIData>();
-            dataClass.WriteUiData();
-            data.id = child.name;
-            data.Title = dataClass.Title;
-            data.Info = dataClass.Info;
-            data.Security = dataClass.Security;
-            data.Image = dataClass.Image;
-            data.Video = dataClass.Video;
-            data.Elements = dataClass.arElements;
-
-            saveObjects.saveData.Add(data);
-        }
-
-        SaveManager.Save(saveObjects);
-        Debug.Log("...SAVE...");
-
-        foreach (Transform child in anchor.transform)
-        {
-            if (child.name != currentStep)
-            {
-                child.gameObject.SetActive(false);
-            }
         }
     }
 
@@ -82,12 +38,9 @@ public class SceneDataObject : MonoBehaviour
             UiObject.transform.SetParent(anchor.transform);
             UiObject.transform.position = new Vector3(0, 0, 0);
             UiObject.name = obj.id;
-            
-            
-
 
             //Add Title
-            if(obj.Title != "")
+            if (obj.Title != "")
             {
                 UiObject.transform.Find("InstructionUI").Find("UITextSelawikSemibold").Find("InstructionText").GetComponent<Text>().text = obj.Title;
             }
@@ -158,7 +111,7 @@ public class SceneDataObject : MonoBehaviour
                     rot.x = element.rotation[0];
                     rot.y = element.rotation[1];
                     rot.z = element.rotation[2];
-                    newArObj.transform.GetChild(0).rotation = Quaternion.Euler(rot);
+                    newArObj.transform.GetChild(0).localRotation = Quaternion.Euler(rot);
 
                     Vector3 scale;
                     scale.x = element.scale[0];
@@ -209,6 +162,48 @@ public class SceneDataObject : MonoBehaviour
         }
 
         Debug.Log("...LOAD...");
+    }
+
+    public void saveData()
+    {
+        saveObjects.saveData.Clear();
+
+        foreach (Transform child in anchor.transform)
+        {
+            if (child.gameObject.activeSelf == true)
+            {
+                currentStep = child.name;
+            }
+            child.gameObject.SetActive(true);
+        }
+
+        foreach (Transform child in anchor.transform)
+        {
+            SaveObject data = new SaveObject();
+
+            var dataClass = child.Find("InstructionUI").Find("DataManager").GetComponent<UIData>();
+            dataClass.WriteUiData();
+            data.id = child.name;
+            data.Title = dataClass.Title;
+            data.Info = dataClass.Info;
+            data.Security = dataClass.Security;
+            data.Image = dataClass.Image;
+            data.Video = dataClass.Video;
+            data.Elements = dataClass.arElements;
+
+            saveObjects.saveData.Add(data);
+        }
+
+        SaveManager.Save(saveObjects);
+        Debug.Log("...SAVE...");
+
+        foreach (Transform child in anchor.transform)
+        {
+            if (child.name != currentStep)
+            {
+                child.gameObject.SetActive(false);
+            }
+        }
     }
 
     private void FindGameObjectsWithTag(string v)

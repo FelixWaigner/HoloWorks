@@ -47,7 +47,7 @@ public class UIData : MonoBehaviour
 
             Debug.Log(element.name);
             data.position = new float[3];
-            data.position[0] = arObj.transform.localPosition.x;
+            data.position[0] = arObj.transform.position.x;
             data.position[1] = arObj.transform.localPosition.y;
             data.position[2] = arObj.transform.localPosition.z;
 

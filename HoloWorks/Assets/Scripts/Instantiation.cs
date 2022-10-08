@@ -12,7 +12,7 @@ public class Instantiation : MonoBehaviour
 
         GameObject MaterialObject = Instantiate(MyObject, new Vector3(0,0,0), Quaternion.identity);
         MaterialObject.name = MyObject.name;
-        GameObject ConfigObject = Instantiate(Resources.Load<GameObject>("Prefabs/ModelConfigPrefabs/BasicConfigs"), new Vector3(0,0,0), Quaternion.identity);
+        GameObject ConfigObject = Instantiate(Resources.Load<GameObject>("Prefabs/ModelConfigPrefabs/BasicConfigs"), ParentAnchor.transform);
         ConfigObject.transform.SetParent(ParentAnchor.transform);
 
         GameObject childObj = ConfigObject.transform.GetChild(0).gameObject;
@@ -34,7 +34,7 @@ public class Instantiation : MonoBehaviour
     {
         GameObject MaterialObject = Instantiate(markerModel);
         MaterialObject.name = markerModel.name;
-        GameObject ConfigObject = Instantiate(Resources.Load<GameObject>("Prefabs/ModelConfigPrefabs/BasicConfigs"));
+        GameObject ConfigObject = Instantiate(Resources.Load<GameObject>("Prefabs/ModelConfigPrefabs/BasicConfigs"), ParentAnchor.transform);
         ConfigObject.transform.SetParent(ParentAnchor.transform);
 
         MaterialObject.transform.SetParent(ConfigObject.transform.GetChild(0));

@@ -23,8 +23,8 @@ MonoBehaviour:
     modelTargetRecoWhileExtendedTracked: 1
     shareRecordingsInITunes: 0
     logLevel: 0
-    version: 10.8.4
-    eulaAcceptedVersions: '{"Values":["10.6","10.8"]}'
+    version: 10.10.2
+    eulaAcceptedVersions: '{"Values":["10.6","10.8","10.10","8.3","9.3","9.4","9.5","9.6"]}'
   database:
     disableModelExtraction: 0
   shaders:
