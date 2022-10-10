@@ -14,8 +14,10 @@ public class SceneDataObject : MonoBehaviour
 
     private string currentStep;
 
-    public void init()
+    public void init(GameObject target)
     {
+        target.SetActive(false);
+
         var fp = GameObject.Find("TraineeTrainerManager").GetComponent<TraineeTrainerManager>();
         if (fp.filePath != "")
         {
@@ -27,6 +29,8 @@ public class SceneDataObject : MonoBehaviour
     {
         saveObjects = SaveManager.Load(filePath);
 
+        Debug.Log(filePath);
+
         foreach (Transform child in anchor.transform)
         {
             Destroy(child.gameObject);
@@ -34,8 +38,8 @@ public class SceneDataObject : MonoBehaviour
 
         foreach (SaveObject obj in saveObjects.saveData)
         {
-            GameObject UiObject = Instantiate(Resources.Load<GameObject>("Prefabs/UI/UI"));
-            UiObject.transform.SetParent(anchor.transform);
+            GameObject UiObject = Instantiate(Resources.Load<GameObject>("Prefabs/UI/UI"), anchor.transform);
+            //UiObject.transform.SetParent(anchor.transform);
             //UiObject.transform.position = new Vector3(0, 0, 0);
             UiObject.name = obj.id;
 
@@ -76,10 +80,8 @@ public class SceneDataObject : MonoBehaviour
                 updateVideo.url = obj.Video;
             }
 
-            
-
             //Add Picture
-            if(obj.Image != "")
+            if (obj.Image != "")
             {
                 UiObject.transform.Find("OptionsHandMenu").Find("MenuContent").Find("Tabs").Find("Picture").gameObject.SetActive(true);
                 UiObject.transform.Find("OptionsHandMenu").Find("MenuContent").Find("Tabs").Find("Picture").GetComponent<AuthorToggleActive>().setToggleActive();
@@ -90,7 +92,8 @@ public class SceneDataObject : MonoBehaviour
                 updatePicture.LoadImage(obj.Image);
             }
 
-            if (obj.Elements.Count > 0 )
+            //Add element
+            if (obj.Elements.Count > 0)
             {
 
                 UiObject.transform.Find("OptionsHandMenu").Find("MenuContent").Find("Tabs").Find("AR").gameObject.SetActive(true);
@@ -99,7 +102,7 @@ public class SceneDataObject : MonoBehaviour
 
                 foreach (ArElement element in obj.Elements)
                 {
-                   
+
                     GameObject newArObj = UiObject.transform.Find("3D Elements").GetComponent<Instantiation>().InstantiateSavedObject(Resources.Load<GameObject>("3D Objects/" + element.name));
                     Vector3 pos;
                     pos.x = element.position[0];
@@ -136,28 +139,27 @@ public class SceneDataObject : MonoBehaviour
 
             if (GameObject.Find("TraineeTrainerManager").GetComponent<TraineeTrainerManager>().user == "Trainee")
             {
-
                 GameObject[] appBars;
                 appBars = GameObject.FindGameObjectsWithTag("AppBar");
 
-                foreach(GameObject appBar in appBars)
+                foreach (GameObject appBar in appBars)
                 {
                     appBar.SetActive(false);
                 }
 
-                foreach(Transform child in anchor.transform)
+                foreach (Transform child in anchor.transform)
                 {
                     GameObject arElements = child.Find("3D Elements").Find("AR Elements").gameObject;
 
-                    foreach(Transform arElement in arElements.transform)
+                    foreach (Transform arElement in arElements.transform)
                     {
                         arElement.Find("Object").GetComponent<ManipulationHandler>().enabled = false;
                     }
                 }
 
                 UiObject.transform.Find("OptionsHandMenu").gameObject.SetActive(false);
-                UiObject.transform.Find("OptionsHandMenu").gameObject.SetActive(true);
-                UiObject.transform.Find("OptionsHandMenu").gameObject.SetActive(false);
+                //UiObject.transform.Find("OptionsHandMenu").gameObject.SetActive(true);
+                //UiObject.transform.Find("OptionsHandMenu").gameObject.SetActive(false);
             }
         }
 

@@ -37,18 +37,10 @@ public class PositionCopy : MonoBehaviour
 
     public void CopyTransformValues(Transform transform)
     {
-        var angles = transform.rotation.eulerAngles;
-
-        //var y = angles.y switch
-        //{
-        //    _ when angles.x > 180 => angles.y + angles.z
-        //    _ when angles.x < 180 => angles.y + angles.z - 180
-        //    _ => 0,
-        //};
-
-        Debug.Log(angles);
         gameObject.transform.position = transform.position;
-        //gameObject.transform.rotation *= new Quaternion(0, Mathf.Sin(y), 0, Mathf.Cos(y));
+        gameObject.transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y - Mathf.Sin(2 * Mathf.PI * transform.rotation.eulerAngles.x / 360f) * transform.rotation.eulerAngles.z, 0);
+
+        if (gameObject.transform.childCount > 0) return;
 
         GameObject instruction = Instantiate(Resources.Load<GameObject>("Prefabs/UI/UI"), gameObject.transform);
         instruction.name = "0";
