@@ -20,21 +20,6 @@ public class PositionCopy : MonoBehaviour
 
     }
 
-    public void GetRotation(GameObject mesh)
-    {
-        foreach (var normal in mesh.GetComponent<MeshFilter>().mesh.normals) Debug.Log(gameObject.transform.TransformPoint(normal));
-
-        var a = gameObject.transform.GetChild(0).TransformPoint(mesh.GetComponent<MeshFilter>().mesh.vertices[0]);
-        var b = gameObject.transform.GetChild(0).TransformPoint(mesh.GetComponent<MeshFilter>().mesh.vertices[1]);
-        var c = gameObject.transform.GetChild(0).TransformPoint(mesh.GetComponent<MeshFilter>().mesh.vertices[2]);
-        var d = gameObject.transform.GetChild(0).TransformPoint(mesh.GetComponent<MeshFilter>().mesh.vertices[3]);
-
-        Debug.Log(gameObject.transform.TransformPoint(a));
-        Debug.Log(gameObject.transform.TransformPoint(b));
-        Debug.Log(gameObject.transform.TransformPoint(c));
-        Debug.Log(gameObject.transform.TransformPoint(d));
-    }
-
     public void CopyTransformValues(Transform transform)
     {
         gameObject.transform.position = transform.position;
