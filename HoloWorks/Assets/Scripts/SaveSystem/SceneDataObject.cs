@@ -36,7 +36,7 @@ public class SceneDataObject : MonoBehaviour
         {
             GameObject UiObject = Instantiate(Resources.Load<GameObject>("Prefabs/UI/UI"));
             UiObject.transform.SetParent(anchor.transform);
-            UiObject.transform.position = new Vector3(0, 0, 0);
+            //UiObject.transform.position = new Vector3(0, 0, 0);
             UiObject.name = obj.id;
 
             //Add Title
