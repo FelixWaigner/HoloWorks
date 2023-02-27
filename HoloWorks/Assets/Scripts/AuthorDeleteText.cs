@@ -10,7 +10,7 @@ public class AuthorDeleteText : MonoBehaviour
 
     public void DeleteText()
     {
-        KeyboardGo.GetComponent<OpenKeyboard>().keyboard.text = "";
+        KeyboardGo.GetComponent<OpenKeyboard>().keyboardText = "";
         KeyboardGo.GetComponent<OpenKeyboard>().keyboardText = "";
         textContent.text = "";
     }

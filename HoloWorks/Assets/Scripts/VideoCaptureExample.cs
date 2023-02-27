@@ -72,8 +72,10 @@ public class VideoCaptureExample : MonoBehaviour
         webcamVideoCaptureObject.StartRecordingAsync(videoFilePath, OnStartedRecordingVideo);
     }
 
-    void OnStartedRecordingVideo(VideoCapture.VideoCaptureResult result)
+    async void OnStartedRecordingVideo(VideoCapture.VideoCaptureResult result)
     {
+        GameObject CdObjs = Instantiate(Resources.Load<GameObject>("Prefabs/UI/Countdown"), new Vector3(0, 0, 0), Quaternion.identity);
+        await System.Threading.Tasks.Task.Delay(2000);
         Debug.Log("Started Recording Video!");
     }
 

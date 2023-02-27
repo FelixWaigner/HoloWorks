@@ -5,6 +5,7 @@ using System.IO;
 using UnityEngine.Windows.Speech;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.MixedReality.Toolkit.UI;
 
 public class newSpeechManager : MonoBehaviour
 {
@@ -39,7 +40,7 @@ public class newSpeechManager : MonoBehaviour
             ToggleActive("Safety");
         });
 
-        keywords.Add("a air", () =>
+        keywords.Add("ar", () =>
         {
             for (int i = 0; i < anchor.transform.childCount; i++)
             {
@@ -67,6 +68,7 @@ public class newSpeechManager : MonoBehaviour
                 {
                     Debug.Log(Go.name);
                     Go.transform.Find("InstructionUI").GetComponent<WorkStep>().NextStep();
+                    return;
                 }
             }
         });
@@ -112,14 +114,19 @@ public class newSpeechManager : MonoBehaviour
         {
             GameObject Go = anchor.transform.GetChild(i).gameObject;
 
-            if (Go.activeSelf == true)
+            if (Go.transform.Find("InstructionUI").Find("ButtonMediatypes").Find("PressableButtonHoloLens2Bar5H(Clone)").Find("ButtonCollection").Find("Button " + mediatype).GetComponent<Interactable>().CanSelect == true)
             {
                 Debug.Log(Go.name);
                 GameObject media = Go.transform.Find("InstructionUI").Find("Mediatypes").Find(mediatype).gameObject;
                 media.SetActive(!media.activeSelf);
 
-                GameObject button = Go.transform.Find("InstructionUI").Find("ButtonMediatypes").Find("PressableButtonHoloLens2Bar5H(Clone)").Find("ButtonCollection").Find("Button " + mediatype).Find("BackPlateToggleState").gameObject;
-                button.SetActive(!button.activeSelf);
+                //GameObject button = Go.transform.Find("InstructionUI").Find("ButtonMediatypes").Find("PressableButtonHoloLens2Bar5H(Clone)").Find("ButtonCollection").Find("Button " + mediatype).Find("BackPlateToggleState").gameObject;
+                Go.transform.Find("InstructionUI").Find("ButtonMediatypes").Find("PressableButtonHoloLens2Bar5H(Clone)").Find("ButtonCollection").Find("Button " + mediatype).GetComponent<Interactable>().IsToggled = !Go.transform.Find("InstructionUI").Find("ButtonMediatypes").Find("PressableButtonHoloLens2Bar5H(Clone)").Find("ButtonCollection").Find("Button " + mediatype).GetComponent<Interactable>().IsToggled;
+                //button.SetActive(!button.activeSelf);
+            }
+            else
+            {
+                Debug.Log("Deactivated Button");
             }
         }
     }

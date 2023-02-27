@@ -73,6 +73,12 @@ public class UIData : MonoBehaviour
         Instantiate(Resources.Load<GameObject>("Prefabs/UI/SaveBackToMenu"));
     }
 
+    public void autoSave()
+    {
+        var saveManagerObject = GameObject.Find("SaveManager").GetComponent<SceneDataObject>();
+        saveManagerObject.saveData();
+    }
+
     /*public void loadDataButtonHelper()
     {
         var saveManagerObject = GameObject.Find("SaveManager").GetComponent<SceneDataObject>();

@@ -1062,7 +1062,7 @@ MonoBehaviour:
   startDimensionIndex: 0
   CanSelect: 0
   CanDeselect: 0
-  VoiceCommand: 
+  voiceCommand: 
   voiceRequiresFocus: 1
   profiles:
   - Target: {fileID: 0}
@@ -2871,7 +2871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trackedTargetType: 0
-  trackedHandness: 3
+  trackedHandedness: 3
   trackedHandJoint: 2
   transformOverride: {fileID: 0}
   additionalOffset: {x: 0, y: 0, z: 0}
@@ -3329,7 +3329,7 @@ MonoBehaviour:
   startDimensionIndex: 0
   CanSelect: 0
   CanDeselect: 0
-  VoiceCommand: 
+  voiceCommand: 
   voiceRequiresFocus: 1
   profiles:
   - Target: {fileID: 0}
@@ -3666,7 +3666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 149d58e57083cae41be4ec822d2f0613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: List
+  nextScene: AuthorList
 --- !u!1 &9105629663340359543
 GameObject:
   m_ObjectHideFlags: 0

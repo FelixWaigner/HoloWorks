@@ -18,10 +18,6 @@ public class PhotoCaptureExample : MonoBehaviour
     // Use this for initialization
     public void TakePhoto()
     {
-        GameObject CdObjs = Instantiate(Resources.Load<GameObject>("Prefabs/UI/Countdown"), new Vector3(0, 0, 0), Quaternion.identity);
-        GameObject camera = GameObject.FindGameObjectWithTag("MainCamera");
-        CdObjs.transform.SetParent(camera.transform);
-        CdObjs.transform.position = transform.position + transform.forward * (1 / 2);
         Resolution cameraResolution = PhotoCapture.SupportedResolutions.OrderByDescending((res) => res.width * res.height).First();
         Texture2D targetTexture = new Texture2D(cameraResolution.width, cameraResolution.height);
 
@@ -56,8 +52,10 @@ public class PhotoCaptureExample : MonoBehaviour
         }
     }
 
-    void TakePicture()
+    async void TakePicture()
     {
+        GameObject CdObjs = Instantiate(Resources.Load<GameObject>("Prefabs/UI/Countdown"), new Vector3(0, 0, 0), Quaternion.identity);
+        await System.Threading.Tasks.Task.Delay(2000);
         capturedImageCount++;
         var uuid = Guid.NewGuid();
         Debug.Log(string.Format("Taking Picture ({0}/{1})...", capturedImageCount, TotalImagesToCapture));

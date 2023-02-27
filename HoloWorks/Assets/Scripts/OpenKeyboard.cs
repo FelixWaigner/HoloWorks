@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,21 +6,23 @@ using UnityEngine.UI;
 
 public class OpenKeyboard : MonoBehaviour
 {
-    public TouchScreenKeyboard keyboard;
+    public readonly Dictionary<Text, TouchScreenKeyboard> keyboardDictionary = new Dictionary<Text, TouchScreenKeyboard>();
     public Text TargetText;
     public string keyboardText;
 
+
     private void Update()
     {
-        if (keyboard != null)
+        if (keyboardDictionary != null &&keyboardDictionary.TryGetValue(TargetText, out var keyboard))
         {
-            keyboardText = keyboard.text;
-            Debug.Log(keyboardText);
-            TargetText.text = keyboardText;
+            //keyboardText = keyboard.text;
+            //Debug.Log(keyboardText);
+            TargetText.text = keyboard.text;
+
         }
     }
     public void OpenSystemKeyboard()
     {
-        keyboard = TouchScreenKeyboard.Open(TargetText.text, TouchScreenKeyboardType.Default, false, false, false, false);
+        keyboardDictionary[TargetText] = TouchScreenKeyboard.Open(TargetText.text, TouchScreenKeyboardType.Default, false, false, false, false);
     }
 }

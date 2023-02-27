@@ -11,4 +11,23 @@ public class ChangeScene : MonoBehaviour
     {
         SceneManager.LoadScene(nextScene);
     }
+
+    public void setTrainerTrainee(string person)
+    {
+        GameObject.Find("TraineeTrainerManager").GetComponent<TraineeTrainerManager>().user = person;
+    }
+
+    public void TariningListMenu()
+    {
+        var user = GameObject.Find("TraineeTrainerManager").GetComponent<TraineeTrainerManager>().user;
+
+        if(user == "Trainee")
+        {
+            SceneManager.LoadScene("List");
+        }
+        else if(user == "Trainer")
+        {
+            SceneManager.LoadScene("AuthorList");
+        }
+    }
 }

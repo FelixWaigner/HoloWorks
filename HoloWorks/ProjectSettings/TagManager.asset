@@ -10,6 +10,7 @@ TagManager:
   - savePlate
   - TrainingNameManager
   - CountdownObject
+  - GridObjectCollection
   layers:
   - Default
   - TransparentFX

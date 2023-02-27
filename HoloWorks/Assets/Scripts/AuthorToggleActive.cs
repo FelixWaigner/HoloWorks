@@ -11,6 +11,7 @@ public class AuthorToggleActive : MonoBehaviour
     public GameObject Button;
     public GameObject AuthorContentButtons;
     public GameObject CompressedButtonVisuals;
+    public GameObject AuthorActiveButton;
 
     private TextMeshPro textMeshPro;
     private Color textOriginalColor;
@@ -31,19 +32,23 @@ public class AuthorToggleActive : MonoBehaviour
 
             setToggleDisabled();
         };
-
     }
 
     public void setToggleActive()
     {
         textMeshPro.color = textOriginalColor;
         iconRenderer.material.color = iconOriginalColor;
-        Panel.SetActive(true);
+        //Panel.SetActive(true);
         AuthorContentButtons.SetActive(true);
-        Button.GetComponent<Interactable>().IsToggled = true;
+        //Button.GetComponent<Interactable>().IsToggled = true;
         Button.GetComponent<Interactable>().CanSelect = true; 
         CompressedButtonVisuals.SetActive(true);
+    }
 
+    public void setAutorToggleActive()
+    {
+        //AuthorActiveButton.GetComponent<Interactable>().IsToggled = true;
+        AuthorActiveButton.GetComponent<Interactable>().TriggerOnClick();
     }
 
     public void setToggleDisabled()
@@ -57,4 +62,9 @@ public class AuthorToggleActive : MonoBehaviour
         CompressedButtonVisuals.SetActive(false);
     }
 
+    public void setTraineeActive()
+    {
+        Panel.SetActive(true);
+        Button.GetComponent<Interactable>().IsToggled = true;
+    }
 }

@@ -58,6 +58,12 @@ public class SceneDataObject : MonoBehaviour
 
                 UiObject.transform.Find("InstructionUI").Find("Mediatypes").Find("Info").Find("InfoText").Find("DescriptionText").GetComponent<Text>().text = obj.Info;
             }
+            else
+            {
+                UiObject.transform.Find("OptionsHandMenu").Find("MenuContent").Find("Tabs").Find("Info").gameObject.SetActive(true);
+                UiObject.transform.Find("OptionsHandMenu").Find("MenuContent").Find("Tabs").Find("Info").GetComponent<AuthorToggleActive>().setToggleDisabled();
+                UiObject.transform.Find("OptionsHandMenu").Find("MenuContent").Find("Tabs").Find("Info").gameObject.SetActive(false);
+            }
 
             //Add Savety
             if (obj.Security != "")
@@ -67,6 +73,12 @@ public class SceneDataObject : MonoBehaviour
                 UiObject.transform.Find("OptionsHandMenu").Find("MenuContent").Find("Tabs").Find("Safety").gameObject.SetActive(false);
 
                 UiObject.transform.Find("InstructionUI").Find("Mediatypes").Find("Safety").Find("SavetyText").Find("SafetyText").GetComponent<Text>().text = obj.Security;
+            }
+            else
+            {
+                UiObject.transform.Find("OptionsHandMenu").Find("MenuContent").Find("Tabs").Find("Safety").gameObject.SetActive(true);
+                UiObject.transform.Find("OptionsHandMenu").Find("MenuContent").Find("Tabs").Find("Safety").GetComponent<AuthorToggleActive>().setToggleDisabled();
+                UiObject.transform.Find("OptionsHandMenu").Find("MenuContent").Find("Tabs").Find("Safety").gameObject.SetActive(false);
             }
 
             //Add Video
@@ -78,6 +90,13 @@ public class SceneDataObject : MonoBehaviour
 
                 var updateVideo = UiObject.transform.Find("InstructionUI").Find("Mediatypes").Find("Video").Find("VideoContainer").Find("Video Player").GetComponent<VideoPlayer>();
                 updateVideo.url = obj.Video;
+
+            }
+            else
+            {
+                UiObject.transform.Find("OptionsHandMenu").Find("MenuContent").Find("Tabs").Find("Video").gameObject.SetActive(true);
+                UiObject.transform.Find("OptionsHandMenu").Find("MenuContent").Find("Tabs").Find("Video").GetComponent<AuthorToggleActive>().setToggleDisabled();
+                UiObject.transform.Find("OptionsHandMenu").Find("MenuContent").Find("Tabs").Find("Video").gameObject.SetActive(false);
             }
 
             //Add Picture
@@ -90,6 +109,12 @@ public class SceneDataObject : MonoBehaviour
                 var updatePicture = UiObject.transform.Find("OptionsHandMenu").Find("PhotoManager").GetComponent<PhotoCaptureExample>();
                 updatePicture.filePath = obj.Image;
                 updatePicture.LoadImage(obj.Image);
+            }
+            else
+            {
+                UiObject.transform.Find("OptionsHandMenu").Find("MenuContent").Find("Tabs").Find("Picture").gameObject.SetActive(true);
+                UiObject.transform.Find("OptionsHandMenu").Find("MenuContent").Find("Tabs").Find("Picture").GetComponent<AuthorToggleActive>().setToggleDisabled();
+                UiObject.transform.Find("OptionsHandMenu").Find("MenuContent").Find("Tabs").Find("Picture").gameObject.SetActive(false);
             }
 
             //Add element
@@ -123,10 +148,11 @@ public class SceneDataObject : MonoBehaviour
                     newArObj.transform.GetChild(0).localScale = scale;
                 }
             }
-
-            if (UiObject.name != "0")
+            else
             {
-                UiObject.gameObject.SetActive(false);
+                UiObject.transform.Find("OptionsHandMenu").Find("MenuContent").Find("Tabs").Find("AR").gameObject.SetActive(true);
+                UiObject.transform.Find("OptionsHandMenu").Find("MenuContent").Find("Tabs").Find("AR").GetComponent<AuthorToggleActive>().setToggleDisabled();
+                UiObject.transform.Find("OptionsHandMenu").Find("MenuContent").Find("Tabs").Find("AR").gameObject.SetActive(false);
             }
 
             var UiDataManager = UiObject.transform.Find("InstructionUI").Find("DataManager").gameObject.GetComponent<UIData>();
@@ -137,16 +163,47 @@ public class SceneDataObject : MonoBehaviour
             UiDataManager.Video = obj.Video;
 
 
-            if (GameObject.Find("TraineeTrainerManager").GetComponent<TraineeTrainerManager>().user == "Trainee")
+            if (GameObject.FindGameObjectWithTag("TrainingNameManager").GetComponent<TraineeTrainerManager>().user == "Trainer")
             {
-                GameObject[] appBars;
-                appBars = GameObject.FindGameObjectsWithTag("AppBar");
-
-                foreach (GameObject appBar in appBars)
+                if (obj.Info != "")
                 {
-                    appBar.SetActive(false);
+                    UiObject.transform.Find("OptionsHandMenu").Find("MenuContent").Find("Tabs").Find("Info").GetComponent<AuthorToggleActive>().setAutorToggleActive();
                 }
 
+                if (obj.Security != "")
+                {
+                    UiObject.transform.Find("OptionsHandMenu").Find("MenuContent").Find("Tabs").Find("Safety").GetComponent<AuthorToggleActive>().setAutorToggleActive();
+                }
+
+                if (obj.Video != "")
+                {
+                    GameObject videoObj = UiObject.transform.Find("InstructionUI").Find("Mediatypes").Find("Video").gameObject;
+                    videoObj.SetActive(true);
+                    videoObj.GetComponent<VideoPlayer>().playOnAwake = false;
+                    videoObj.transform.Find("VideoContainer").Find("Video Player").gameObject.GetComponent<VideoPlayer>().playOnAwake = false;
+                    videoObj.SetActive(false);
+
+                    UiObject.transform.Find("OptionsHandMenu").Find("MenuContent").Find("Tabs").Find("Video").GetComponent<AuthorToggleActive>().setAutorToggleActive();
+                }
+
+                if (obj.Image != "")
+                {
+                    UiObject.transform.Find("OptionsHandMenu").Find("MenuContent").Find("Tabs").Find("Picture").GetComponent<AuthorToggleActive>().setAutorToggleActive();
+                }
+
+                if (obj.Elements.Count > 0)
+                {
+                    UiObject.transform.Find("OptionsHandMenu").Find("MenuContent").Find("Tabs").Find("AR").GetComponent<AuthorToggleActive>().setAutorToggleActive();
+                }
+
+                if (UiObject.name != "0")
+                {
+                    UiObject.gameObject.SetActive(false);
+                }
+            }
+
+            if (GameObject.FindGameObjectWithTag("TrainingNameManager").GetComponent<TraineeTrainerManager>().user == "Trainee")
+            {
                 foreach (Transform child in anchor.transform)
                 {
                     GameObject arElements = child.Find("3D Elements").Find("AR Elements").gameObject;
@@ -154,12 +211,16 @@ public class SceneDataObject : MonoBehaviour
                     foreach (Transform arElement in arElements.transform)
                     {
                         arElement.Find("Object").GetComponent<ManipulationHandler>().enabled = false;
+                        arElement.Find("AppBar").gameObject.SetActive(false);
                     }
                 }
 
                 UiObject.transform.Find("OptionsHandMenu").gameObject.SetActive(false);
-                //UiObject.transform.Find("OptionsHandMenu").gameObject.SetActive(true);
-                //UiObject.transform.Find("OptionsHandMenu").gameObject.SetActive(false);
+
+                if (UiObject.name != "0")
+                {
+                    UiObject.gameObject.SetActive(false);
+                }
             }
         }
 
@@ -213,6 +274,7 @@ public class SceneDataObject : MonoBehaviour
         throw new NotImplementedException();
     }
 }
+
 
 [System.Serializable]
 public class SaveObject

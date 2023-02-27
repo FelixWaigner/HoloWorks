@@ -5,6 +5,7 @@ using UnityEngine;
 public class WorkStep : MonoBehaviour
 {
     public float x, y, z;
+    private string activeStep;
 
     public void SaveUIPosition(GameObject ws)
     {
@@ -26,20 +27,46 @@ public class WorkStep : MonoBehaviour
         Vector3 LoadPosition = new Vector3(x, y, z);
         ws.transform.position = LoadPosition;
     }
-    public void CreateNewWorkStep()
+
+    private void SortNames(GameObject anchor)
     {
 
-        GameObject anchor = GameObject.FindWithTag("Anchor");
-        GameObject instruction = Instantiate(Resources.Load<GameObject>("Prefabs/UI/UI"), anchor.transform);
-
-        instruction.name = anchor.transform.childCount.ToString();
-
-        for (int j = 0; j < anchor.transform.childCount; j++)
+        for (int i = 0; i < anchor.transform.childCount; i++)
         {
-            anchor.transform.GetChild(j).gameObject.SetActive(false);
+            anchor.transform.GetChild(i).name = i.ToString();
         }
 
-        instruction.transform.SetParent(anchor.transform);
+    }
+
+    public void CreateNewWorkStep()
+    {        
+        GameObject anchor = GameObject.FindWithTag("Anchor");
+        GameObject instruction = Instantiate(Resources.Load<GameObject>("Prefabs/UI/UI"), anchor.transform);
+        int newElementIndex = 0;
+
+        for(int i = 0; i < anchor.transform.childCount; i++)
+        {
+            if (anchor.transform.GetChild(i).gameObject.activeSelf == true)
+            {
+                instruction.transform.SetParent(anchor.transform);
+                instruction.transform.SetSiblingIndex(i);
+                newElementIndex = i;
+                SortNames(anchor);
+            }
+        }
+
+        foreach(Transform child in anchor.transform)
+        {
+            if(child.GetSiblingIndex() != newElementIndex)
+            {
+                child.gameObject.SetActive(false);
+            }
+            else
+            {
+                child.gameObject.SetActive(true);
+            }
+        }
+
     }
 
     public void DeleteWorkStep()
@@ -51,8 +78,8 @@ public class WorkStep : MonoBehaviour
         {
             //Activate the GameObject above the Destroyed GameObject
             anchor.transform.GetChild(workstep.transform.GetSiblingIndex() - 1).gameObject.SetActive(true);
-
             Destroy(workstep);
+            SortNames(anchor);
         }
     }
 

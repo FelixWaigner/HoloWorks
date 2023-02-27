@@ -21,7 +21,8 @@ public class UiHeaderManager : MonoBehaviour
     void Update()
     {
         int allSteps = anchor.transform.childCount;
-        int currentStep = int.Parse(gameObject.transform.parent.transform.parent.name) + 1;
+        //int currentStep = int.Parse(gameObject.transform.parent.transform.parent.name);
+        int currentStep = gameObject.transform.parent.parent.GetSiblingIndex() + 1;
 
         string text = "Schritt " + currentStep + "/" + allSteps;
 
