@@ -59,6 +59,7 @@ public class DisableAllMediatypes : MonoBehaviour
 
         if (ArButton.GetComponent<Interactable>().CanSelect == true)
         {
+            Debug.Log("TEST");
             ArButton.GetComponent<Interactable>().IsToggled = false;
             ArPannel.SetActive(false);
         }

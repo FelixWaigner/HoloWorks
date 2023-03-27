@@ -5,6 +5,7 @@ using UnityEngine.Windows.WebCam;
 using System;
 using UnityEngine.Video;
 using System.Threading;
+using Microsoft.MixedReality.Toolkit.UI;
 
 [RequireComponent(typeof(AudioSource))]
 public class VideoCaptureExample : MonoBehaviour
@@ -18,11 +19,14 @@ public class VideoCaptureExample : MonoBehaviour
     public VideoCapture VideoPlayerObject;
     string videoFilePath;
     public GameObject videoContainer;
+    public GameObject videoButton;
 
     public void RecordVideo()
     {
+        videoButton.GetComponent<Interactable>().enabled = false;
         Resolution cameraResolution = VideoCapture.SupportedResolutions.OrderByDescending((res) => res.width * res.height).First();
         float cameraFramerate = VideoCapture.GetSupportedFrameRatesForResolution(cameraResolution).OrderByDescending((fps) => fps).First();
+
 
 
         VideoCapture.CreateAsync(false, delegate (VideoCapture videoCapture)
@@ -63,6 +67,8 @@ public class VideoCaptureExample : MonoBehaviour
         videoPlayer.EnableAudioTrack(0, true);
         videoPlayer.Prepare();
         videoContainer.SetActive(true);
+
+        videoButton.GetComponent<Interactable>().enabled = true;
     }
 
     void OnStartedVideoCaptureMode(VideoCapture.VideoCaptureResult result)

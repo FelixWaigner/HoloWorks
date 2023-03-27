@@ -3208,6 +3208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PreviewVisible: 1
   RuntimeOcclusion: 0
+  RuntimeCollider: 0
   mTrackableName: image-target
   mInitializedInEditor: 1
   mDataSetPath: 

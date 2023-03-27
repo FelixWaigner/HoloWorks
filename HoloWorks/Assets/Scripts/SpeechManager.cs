@@ -38,7 +38,7 @@ public class SpeechManager : MonoBehaviour
             ToggleActive(safety);
         });
 
-        keywords.Add("dreide", () =>
+        keywords.Add("position", () =>
         {
             ToggleActive(ar);
         });

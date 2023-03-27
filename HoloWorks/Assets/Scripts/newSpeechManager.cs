@@ -40,7 +40,7 @@ public class newSpeechManager : MonoBehaviour
             ToggleActive("Safety");
         });
 
-        keywords.Add("ar", () =>
+        keywords.Add("Position", () =>
         {
             for (int i = 0; i < anchor.transform.childCount; i++)
             {
@@ -52,9 +52,18 @@ public class newSpeechManager : MonoBehaviour
                     GameObject media = Go.transform.Find("3D Elements").Find("AR Elements").gameObject;
                     media.SetActive(!media.activeSelf);
                 }
+            }
 
-                GameObject button = Go.transform.Find("InstructionUI").Find("ButtonMediatypes").Find("PressableButtonHoloLens2Bar5H(Clone)").Find("ButtonCollection").Find("Button AR").Find("BackPlateToggleState").gameObject;
-                button.SetActive(!button.activeSelf);
+            for (int i = 0; i < anchor.transform.childCount; i++)
+            {
+                GameObject Go = anchor.transform.GetChild(i).gameObject;
+
+                if (Go.transform.Find("InstructionUI").Find("ButtonMediatypes").Find("PressableButtonHoloLens2Bar5H(Clone)").Find("ButtonCollection").Find("Button AR").GetComponent<Interactable>().CanSelect == true)
+                {
+                    Go.transform.Find("InstructionUI").Find("ButtonMediatypes").Find("PressableButtonHoloLens2Bar5H(Clone)").Find("ButtonCollection").Find("Button AR").GetComponent<Interactable>().IsToggled = !Go.transform.Find("InstructionUI").Find("ButtonMediatypes").Find("PressableButtonHoloLens2Bar5H(Clone)").Find("ButtonCollection").Find("Button AR").GetComponent<Interactable>().IsToggled;
+
+                }
+
             }
         });
 
