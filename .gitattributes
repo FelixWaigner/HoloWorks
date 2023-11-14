@@ -3,4 +3,5 @@
 *. js linguist-detectable=false
 *.html linguist-detectable=false
 *.xml linguist-detectable=false
-*.ShaderLab linguist-detectable=false
+**/shader/* linguist-vendored=false
+**/cginc/* linguist-vendored=false
