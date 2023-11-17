@@ -17,6 +17,9 @@
 *.meta merge=unityyamlmerge eol=lf
 *.controller merge=unityyamlmerge eol=lf
 
+**/shaders/* linguist-vendored
+**/cginc/* linguist-vendored
+
 
 ## git-lfs ##
 
